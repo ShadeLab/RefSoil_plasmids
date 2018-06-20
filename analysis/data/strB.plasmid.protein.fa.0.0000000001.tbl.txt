@@ -1,0 +1,23 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+WP_000480968.1_10    -            278 strB                 -            278  2.3e-197  657.3   1.2   1   1  1.4e-201  2.6e-197  657.2   1.2     1   278     1   278     1   278 1.00 from NC_016859.1
+WP_000480968.1_183   -            278 strB                 -            278  2.3e-197  657.3   1.2   1   1  1.4e-201  2.6e-197  657.2   1.2     1   278     1   278     1   278 1.00 from NZ_CP007228.1
+WP_000480968.1_24    -            278 strB                 -            278  2.3e-197  657.3   1.2   1   1  1.4e-201  2.6e-197  657.2   1.2     1   278     1   278     1   278 1.00 from NC_009651.1
+WP_000480968.1_30    -            278 strB                 -            278  2.3e-197  657.3   1.2   1   1  1.4e-201  2.6e-197  657.2   1.2     1   278     1   278     1   278 1.00 from NZ_CP007227.1
+WP_000480968.1_51    -            278 strB                 -            278  2.3e-197  657.3   1.2   1   1  1.4e-201  2.6e-197  657.2   1.2     1   278     1   278     1   278 1.00 from NC_009140.1
+WP_000480968.1_8     -            278 strB                 -            278  2.3e-197  657.3   1.2   1   1  1.4e-201  2.6e-197  657.2   1.2     1   278     1   278     1   278 1.00 from NC_016862.1
+WP_000480970.1_92    -            260 strB                 -            278  5.2e-175  584.0   0.6   1   1  3.4e-179  6.3e-175  583.7   0.6     1   248     1   248     1   252 0.99 from NC_011092.1
+WP_015342599.1_565   -            274 strB                 -            278   2.5e-29  106.2   0.3   1   1   1.7e-33   3.2e-29  105.8   0.3    34   268    36   261    21   270 0.88 from NC_020062.1
+39                   -             33 strB                 -            278   1.6e-16   64.2   0.4   1   1   8.7e-21   1.6e-16   64.1   0.4   246   278     1    33     1    33 0.99 from NC_011092.1
+8                    -             33 strB                 -            278   1.6e-16   64.2   0.4   1   1   8.7e-21   1.6e-16   64.1   0.4   246   278     1    33     1    33 0.99 from NC_006856.1
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/strB/originaldata/strB.hmm
+# Target file:     /mnt/research/ShadeLab/WorkingSpace/Dunivin/as_ncbi/refsoil/plasmid.protein.fa
+# Option settings: /opt/software/HMMER/3.1b2--GCC-4.8.3/bin/hmmsearch -o /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/strB.plasmid.protein.fa.stdout.txt -A /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/strB.plasmid.protein.fa.alignment.0.0000000001.txt --domtblout /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/strB.plasmid.protein.fa.0.0000000001.tbl.txt -E 0.0000000001 --cpu 8 /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/strB/originaldata/strB.hmm /mnt/research/ShadeLab/WorkingSpace/Dunivin/as_ncbi/refsoil/plasmid.protein.fa 
+# Current dir:     /mnt/research/ShadeLab/Dunivin/hmmsearch/bin
+# Date:            Tue May 22 14:06:27 2018
+# [ok]

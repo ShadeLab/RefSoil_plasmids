@@ -1,0 +1,92 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+MBAR_RS11760         -            323 Resfam_vanH          -            323   4.2e-48  166.3   1.7   1   1   8.3e-50     1e-46  161.8   1.7    75   316    68   303    61   309 0.91 from NC_007355
+MA_RS06920           -            319 Resfam_vanH          -            323   4.7e-48  166.1   0.1   1   1   3.7e-50   4.4e-47  163.0   0.1    72   317    65   304    53   310 0.91 from NC_003552
+MFER_RS04300         -            526 Resfam_vanH          -            323   1.2e-47  164.8   2.8   1   1   4.2e-50     5e-47  162.8   2.8    62   261    55   259    17   301 0.88 from NC_014658
+MPSY_RS03580         -            328 Resfam_vanH          -            323   2.9e-46  160.3   0.1   1   1   3.6e-48   4.4e-45  156.4   0.1    74   313    67   305    58   312 0.86 from NC_018876
+PNA2_RS10010         -            304 Resfam_vanH          -            323     2e-45  157.5   1.8   1   1     6e-48   7.2e-45  155.7   1.8    52   262    45   260    31   300 0.86 from NC_015474
+MMAH_RS06490         -            319 Resfam_vanH          -            323   4.1e-45  156.5   0.9   1   1   7.3e-47   8.7e-44  152.1   0.9    69   316    62   303    56   309 0.90 from NC_014002
+FACI_RS02095         -            311 Resfam_vanH          -            323   1.1e-44  155.1   2.9   1   1   4.9e-47   5.9e-44  152.7   2.9    73   312    65   300    48   306 0.84 from NC_021592
+RCI_RS10395          -            319 Resfam_vanH          -            323   2.2e-44  154.0   0.1   1   1     4e-46   4.8e-43  149.7   0.1    71   305    64   290    58   301 0.89 from NC_009464
+TTX_RS04870          -            324 Resfam_vanH          -            323   2.3e-44  154.0   0.5   1   1   2.5e-46     3e-43  150.3   0.5    71   319    72   316    42   319 0.85 from NC_016070
+TK_RS09860           -            304 Resfam_vanH          -            323   1.3e-43  151.6   0.3   1   1   3.8e-46   4.5e-43  149.8   0.3    48   262    41   260    31   300 0.87 from NC_006624
+MSM_RS02260          -            524 Resfam_vanH          -            323   1.9e-43  151.0   2.4   1   2   8.6e-46     1e-42  148.6   0.7    57   304    49   288    20   300 0.84 from NC_009515
+MSM_RS02260          -            524 Resfam_vanH          -            323   1.9e-43  151.0   2.4   2   2       1.4   1.7e+03    0.0   0.0     9    59   351   404   345   414 0.73 from NC_009515
+DESMU_RS04580        -            316 Resfam_vanH          -            323   2.8e-42  147.2   0.1   1   2   6.6e-45   7.9e-42  145.7   0.0    54   261    53   266    21   269 0.87 from NC_014961
+DESMU_RS04580        -            316 Resfam_vanH          -            323   2.8e-42  147.2   0.1   2   2       3.6   4.3e+03   -1.3   0.0   282   298   274   290   271   308 0.71 from NC_014961
+TUZN_RS03255         -            324 Resfam_vanH          -            323   1.7e-41  144.6   0.2   1   1   1.9e-43   2.3e-40  140.9   0.2    67   316    70   313    32   319 0.81 from NC_015315
+GYY_RS04955          -            318 Resfam_vanH          -            323     1e-40  142.1   0.9   1   1     6e-43   7.2e-40  139.2   0.9    70   313    63   304    36   311 0.83 from NC_015847
+VMUT_RS07085         -            318 Resfam_vanH          -            323   1.2e-40  141.8   0.2   1   1   1.2e-43   1.5e-40  141.5   0.2    72   262    66   264    40   313 0.90 from NC_015151
+METBO_RS02145        -            525 Resfam_vanH          -            323   5.5e-40  139.6   5.8   1   1   4.3e-42   5.2e-39  136.4   4.2    37   301    30   286    12   303 0.84 from NC_015216
+MBOO_RS11280         -            534 Resfam_vanH          -            323   2.7e-39  137.4   2.7   1   1   1.8e-41   2.2e-38  134.4   2.6    57   315    52   301    42   305 0.88 from NC_009712
+TK_RS03375           -            333 Resfam_vanH          -            323   4.2e-39  136.7   0.0   1   1     7e-42   8.4e-39  135.7   0.0    76   261    71   270    64   314 0.85 from NC_006624
+RCI_RS07265          -            526 Resfam_vanH          -            323     6e-39  136.2   0.6   1   1   5.5e-41   6.6e-38  132.8   0.6    58   262    52   261    27   303 0.87 from NC_009464
+PNA2_RS06145         -            334 Resfam_vanH          -            323   6.1e-39  136.2   0.0   1   1   1.6e-41   1.9e-38  134.6   0.0    74   262    69   271    61   316 0.82 from NC_015474
+GYY_RS08640          -            523 Resfam_vanH          -            323   6.3e-39  136.1   0.2   1   1   1.3e-41   1.5e-38  134.9   0.2    73   261    64   259    51   262 0.93 from NC_015847
+PTO_RS07500          -            310 Resfam_vanH          -            323   7.1e-39  136.0   0.4   1   1   2.8e-41   3.4e-38  133.8   0.4    60   312    52   294    35   299 0.85 from NC_005877
+VMUT_RS02300         -            341 Resfam_vanH          -            323   2.3e-38  134.3   1.0   1   1   2.8e-40   3.4e-37  130.5   1.0    75   312    80   313    70   322 0.81 from NC_015151
+PNA2_RS05810         -            333 Resfam_vanH          -            323   2.9e-38  134.0   0.2   1   1   2.4e-40   2.8e-37  130.7   0.2    73   261    65   265    50   314 0.81 from NC_015474
+MTC_RS00245          -            526 Resfam_vanH          -            323   3.9e-38  133.6   0.2   1   1   9.7e-40   1.2e-36  128.7   0.1    72   298    64   283    46   300 0.88 from NC_017034
+TK_RS02715           -            333 Resfam_vanH          -            323   1.1e-36  128.8   0.2   1   1   2.6e-39   3.1e-36  127.3   0.2    72   261    64   265    57   312 0.85 from NC_006624
+VMUT_RS11150         -            307 Resfam_vanH          -            323   3.3e-36  127.2   4.1   1   1   1.3e-38   1.6e-35  125.0   4.1    57   303    51   291    14   305 0.85 from NC_015151
+MPAL_RS02225         -            532 Resfam_vanH          -            323   5.3e-36  126.5   2.2   1   1   1.1e-38   1.3e-35  125.2   2.2    72   261    68   264    51   306 0.91 from NC_011832
+MSP_RS05675          -            524 Resfam_vanH          -            323   9.8e-35  122.4   3.4   1   1   8.5e-37     1e-33  119.0   3.3    62   306    55   290    25   304 0.86 from NC_007681
+HMUK_RS00900         -            321 Resfam_vanH          -            323   2.9e-34  120.8   0.0   1   1   6.7e-36   8.1e-33  116.1   0.0    77   315    70   306    63   312 0.85 from NC_013202
+TA_RS04000           -            309 Resfam_vanH          -            323   8.9e-34  119.2   0.0   1   2   3.3e-36     4e-33  117.1   0.0    73   261    62   256    54   258 0.86 from NC_002578
+TA_RS04000           -            309 Resfam_vanH          -            323   8.9e-34  119.2   0.0   2   2       2.2   2.7e+03   -0.7   0.0   282   316   264   298   261   302 0.87 from NC_002578
+MZHIL_RS05165        -            523 Resfam_vanH          -            323   2.8e-33  117.6   1.5   1   2   2.3e-36   2.8e-33  117.6   1.5    73   299    63   282    45   296 0.88 from NC_015676
+MZHIL_RS05165        -            523 Resfam_vanH          -            323   2.8e-33  117.6   1.5   2   2       2.6   3.1e+03   -0.9   0.3    28    82   370   425   346   440 0.73 from NC_015676
+MA_RS03105           -            523 Resfam_vanH          -            323   3.2e-33  117.4   1.4   1   1   2.6e-35   3.1e-32  114.2   1.4    73   261    63   258    44   298 0.87 from NC_003552
+MPET_RS01730         -            528 Resfam_vanH          -            323   3.3e-33  117.3   2.3   1   2     4e-36   4.8e-33  116.8   1.0    58   261    52   260    27   303 0.91 from NC_014507
+MPET_RS01730         -            528 Resfam_vanH          -            323   3.3e-33  117.3   2.3   2   2       6.4   7.7e+03   -2.2   0.0    28    55   374   401   367   419 0.86 from NC_014507
+MM_RS09090           -            523 Resfam_vanH          -            323   3.7e-33  117.2   2.1   1   1   3.6e-35   4.4e-32  113.7   2.0    73   293    63   276    44   298 0.86 from NC_003901
+MPSY_RS03995         -            523 Resfam_vanH          -            323   1.2e-32  115.5   0.7   1   2   9.8e-36   1.2e-32  115.5   0.7    73   261    63   258    43   289 0.92 from NC_018876
+MPSY_RS03995         -            523 Resfam_vanH          -            323   1.2e-32  115.5   0.7   2   2       5.3   6.4e+03   -1.9   1.4    34   106   376   448   364   455 0.74 from NC_018876
+MMAH_RS07650         -            523 Resfam_vanH          -            323   1.9e-32  114.8   1.9   1   2   2.1e-35   2.5e-32  114.5   0.1    74   262    64   259    50   290 0.91 from NC_014002
+MMAH_RS07650         -            523 Resfam_vanH          -            323   1.9e-32  114.8   1.9   2   2       4.6   5.5e+03   -1.7   0.2    26    60   368   403   355   429 0.74 from NC_014002
+TVG_RS06425          -            309 Resfam_vanH          -            323   6.4e-31  109.8   0.1   1   1   8.4e-33     1e-29  105.9   0.1    73   316    62   298    44   303 0.88 from NC_002689
+MBAR_RS07655         -            523 Resfam_vanH          -            323   7.1e-31  109.7   1.3   1   1   3.9e-33   4.7e-30  107.0   1.3    72   261    62   258    25   297 0.86 from NC_007355
+FACI_RS05415         -            300 Resfam_vanH          -            323   8.8e-31  109.4   2.8   1   1   1.9e-33   2.3e-30  108.0   2.8    51   309    45   292    27   299 0.84 from NC_021592
+TUZN_RS06630         -            305 Resfam_vanH          -            323   1.5e-30  108.6   0.2   1   1   5.6e-33   6.7e-30  106.5   0.2    69   307    60   292    33   304 0.84 from NC_015315
+FACI_RS07790         -            312 Resfam_vanH          -            323     2e-29  104.9   0.0   1   1   2.8e-31   3.3e-28  100.9   0.0    73   315    62   297    58   303 0.86 from NC_021592
+PTO_RS01980          -            299 Resfam_vanH          -            323   4.6e-29  103.7   1.4   1   1   1.9e-31   2.3e-28  101.5   1.4    50   303    44   284     5   297 0.83 from NC_005877
+TTX_RS10125          -            305 Resfam_vanH          -            323   1.6e-28  102.0   0.2   1   1   2.3e-31   2.8e-28  101.2   0.2    69   261    60   257    29   304 0.87 from NC_016070
+MBOO_RS10525         -            325 Resfam_vanH          -            323   1.6e-28  101.9   0.0   1   2   3.8e-31   4.5e-28  100.5   0.0    69   259    57   261    44   265 0.83 from NC_009712
+MBOO_RS10525         -            325 Resfam_vanH          -            323   1.6e-28  101.9   0.0   2   2       4.9   5.9e+03   -1.8   0.0   287   299   275   287   272   301 0.81 from NC_009712
+HTUR_RS00385         -            528 Resfam_vanH          -            323   1.4e-27   98.8   0.3   1   1   2.2e-30   2.7e-27   97.9   0.1    76   260    67   257    36   262 0.87 from NC_013743
+HVO_RS19055          -            525 Resfam_vanH          -            323   2.9e-27   97.8   0.2   1   1   5.9e-30     7e-27   96.6   0.1    80   261    71   258    63   293 0.91 from NC_013967
+HTUR_RS14515         -            325 Resfam_vanH          -            323   3.5e-27   97.5   0.0   1   1     2e-29   2.5e-26   94.8   0.0    81   261    78   265    64   308 0.86 from NC_013743
+HMUK_RS03785         -            529 Resfam_vanH          -            323   4.9e-27   97.1   0.1   1   2       8.3   9.9e+03   -2.5   0.0   152   179     3    31     2    50 0.79 from NC_013202
+HMUK_RS03785         -            529 Resfam_vanH          -            323   4.9e-27   97.1   0.1   2   2   1.4e-29   1.7e-26   95.3   0.1    76   261    67   259    36   300 0.83 from NC_013202
+HVO_RS05285          -            324 Resfam_vanH          -            323   9.1e-26   92.9   0.0   1   1   1.8e-28   2.2e-25   91.7   0.0    80   261    74   261    65   295 0.89 from NC_013967
+M1627_RS06820        -            323 Resfam_vanH          -            323   1.3e-25   92.4   8.0   1   1   1.9e-28   2.3e-25   91.6   8.0    44   261    51   271    25   314 0.85 from NC_012632
+M164_RS06415         -            323 Resfam_vanH          -            323   1.3e-25   92.4   8.0   1   1   1.9e-28   2.3e-25   91.6   8.0    44   261    51   271    25   314 0.85 from NC_012726
+SIH_RS06695          -            323 Resfam_vanH          -            323   1.3e-25   92.4   8.0   1   1   1.9e-28   2.3e-25   91.6   8.0    44   261    51   271    25   314 0.85 from NC_017275
+SIL_RS05870          -            323 Resfam_vanH          -            323   1.3e-25   92.4   8.0   1   1   1.9e-28   2.3e-25   91.6   8.0    44   261    51   271    25   314 0.85 from NC_021058
+SIRE_RS05970         -            323 Resfam_vanH          -            323   1.3e-25   92.4   8.0   1   1   1.9e-28   2.3e-25   91.6   8.0    44   261    51   271    25   314 0.85 from NC_017276
+HTUR_RS11480         -            312 Resfam_vanH          -            323   5.9e-24   87.0   0.0   1   1     9e-27   1.1e-23   86.1   0.0    76   261    68   259    58   301 0.81 from NC_013743
+HTUR_RS17525         -            309 Resfam_vanH          -            323   6.3e-24   86.9   0.0   1   1   1.3e-25   1.6e-22   82.2   0.0   142   313   131   295   103   304 0.83 from NC_013743
+TVG_RS05165          -            303 Resfam_vanH          -            323   3.9e-22   81.0   0.2   1   1   4.2e-25     5e-22   80.6   0.2    73   246    50   224    36   259 0.85 from NC_002689
+HTUR_RS09270         -            325 Resfam_vanH          -            323   9.8e-21   76.4   0.0   1   1   4.9e-23   5.8e-20   73.8   0.0    82   261    83   269    73   313 0.82 from NC_013743
+FACI_RS08595         -            296 Resfam_vanH          -            323   8.8e-20   73.2   0.2   1   2   1.5e-20   1.8e-17   65.6   0.1    72   263    50   244    20   247 0.81 from NC_021592
+FACI_RS08595         -            296 Resfam_vanH          -            323   8.8e-20   73.2   0.2   2   2     0.022        26    6.0   0.0   287   316   252   281   246   286 0.89 from NC_021592
+HMUK_RS12365         -            318 Resfam_vanH          -            323   1.5e-19   72.4   0.0   1   1   4.4e-22   5.3e-19   70.7   0.0   129   261   124   260    67   304 0.80 from NC_013202
+HVO_RS13960          -            308 Resfam_vanH          -            323   2.5e-19   71.8   0.1   1   1   4.4e-22   5.3e-19   70.7   0.1   116   261   103   255    62   295 0.82 from NC_013967
+HVO_RS17485          -            319 Resfam_vanH          -            323   2.6e-19   71.7   0.0   1   1   1.9e-21   2.2e-18   68.6   0.0    82   298    78   289    70   305 0.76 from NC_013967
+PTO_RS05860          -            297 Resfam_vanH          -            323   2.6e-19   71.7   0.1   1   2     3e-20   3.7e-17   64.6   0.0    73   247    54   230    41   241 0.90 from NC_005877
+PTO_RS05860          -            297 Resfam_vanH          -            323   2.6e-19   71.7   0.1   2   2     0.036        43    5.2   0.0   286   312   253   281   242   289 0.76 from NC_005877
+TA_RS04430           -            303 Resfam_vanH          -            323   4.7e-16   61.0   0.1   1   1   5.8e-19     7e-16   60.4   0.1    73   246    50   224    38   239 0.85 from NC_002578
+VMUT_RS10225         -            324 Resfam_vanH          -            323   6.9e-16   60.4   0.0   1   1   8.9e-19   1.1e-15   59.8   0.0    73   248    67   248    60   309 0.81 from NC_015151
+TUZN_RS00445         -            301 Resfam_vanH          -            323     8e-13   50.4   0.0   1   1   8.9e-15   1.1e-11   46.7   0.0    73   318    51   287    39   292 0.81 from NC_015315
+TTX_RS06035          -            301 Resfam_vanH          -            323   6.1e-11   44.2   0.0   1   1   1.2e-13   1.4e-10   43.0   0.0    72   264    50   243    29   290 0.88 from NC_016070
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/vanH/originaldata/vanH.hmm
+# Target file:     /mnt/research/ShadeLab/WorkingSpace/Dunivin/as_ncbi/refsoil/archaea.protein.fa
+# Option settings: /opt/software/HMMER/3.1b2--GCC-4.8.3/bin/hmmsearch -o /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/vanH.archaea.protein.fa.stdout.txt -A /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/vanH.archaea.protein.fa.alignment.0.0000000001.txt --domtblout /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/vanH.archaea.protein.fa.0.0000000001.tbl.txt -E 0.0000000001 --cpu 8 /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/vanH/originaldata/vanH.hmm /mnt/research/ShadeLab/WorkingSpace/Dunivin/as_ncbi/refsoil/archaea.protein.fa 
+# Current dir:     /mnt/research/ShadeLab/Dunivin/hmmsearch/bin
+# Date:            Tue May 22 14:06:23 2018
+# [ok]
