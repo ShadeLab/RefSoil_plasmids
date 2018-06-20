@@ -339,10 +339,6 @@ ggsave(refsoil.bp.plasmid, filename = "figures/refsoil.bp.pie.eps")
 size.p <- size %>%
   subset(id == "plasmid_size_refsoil_tab.txt") %>%
   mutate(NCBI.ID = as.character(V2))
-  
-#test modality
-library(diptest)
-dip.test(size.p$V3, simulate.p.value = TRUE, B=5000)
 
 #plot plasmid sizes
 (size.plasmid <- ggplot(size.p, aes(x = V3/1000)) +
@@ -352,34 +348,3 @@ dip.test(size.p$V3, simulate.p.value = TRUE, B=5000)
   xlab("Plasmid size (Kbps)") +
   theme_classic(base_size = 10))
 ggsave(size.plasmid, filename = "figures/plasmid.size.hist.eps", units = "in", height = 1.8, width = 2.5)
-
-##################################################
-#OLD REMOVE ***********GET SPECIES-LEVEL DIFFERENCES IN PLASMID CONTENT#
-##################################################
-#list duplicated organisms
-duplicates <- ncbi[which(duplicated(ncbi$Organism)),]
-
-#extract duplicated organisms
-dup.df <- ncbi.tidy %>%
-  subset(Organism %in% duplicates$Organism) %>%
-  subset(Contains.plasmid !=FALSE) %>%
-  mutate(NCBI.ID = gsub("\\..*", "", NCBI.ID)) %>%
-  left_join(size.p, by = "NCBI.ID") %>%
-  mutate(Source = ifelse(Contains.plasmid == FALSE, "plasmid1", Source)) %>%
-  subset(Source !="NCBI.ID") %>%
-  subset(Source !="NCBI.ID2") %>%
-  mutate(Organism = as.factor(Organism))
-  
-#order by organism
-dup.df$`RefSoil ID` <- factor(dup.df$`RefSoil ID`, 
-                              dup.df$`RefSoil ID`[order(dup.df$Organism)])
-
-(duplicate.plot <- ggplot(dup.df, aes(x = `RefSoil ID`, y = Source, size = V3/1000, color = Organism)) +
-  geom_point() +
-  scale_color_brewer(palette = "Dark2") +
-  coord_flip() +
-  theme_bw(base_size = 10) +
-  ylab("Plasmid") +
-  theme(axis.text.x = element_blank()))
-  
-ggsave(duplicate.plot, filename = "figures/duplicate.organisms.eps", width = 7.5, height = 5)
