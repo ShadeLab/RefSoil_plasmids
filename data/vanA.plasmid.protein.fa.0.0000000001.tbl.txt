@@ -1,0 +1,21 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+WP_038496482.1_131   -            355 Resfam_vanA          -            343   6.6e-65  223.0   0.0   1   1   2.7e-69   8.5e-65  222.6   0.0     3   338     7   347     5   352 0.90 from NZ_CP007227.1
+WP_025430087.1_15    -            358 Resfam_vanA          -            343   2.9e-59  204.4   0.0   1   1   1.1e-63   3.6e-59  204.1   0.0     3   340     7   350     5   353 0.87 from NZ_CP007239.1
+WP_025436665.1_261   -            300 Resfam_vanA          -            343   2.1e-42  149.0   2.7   1   2   1.5e-07    0.0048   19.6   0.2     4    43     1    40     1    50 0.91 from NZ_CP007453.1
+WP_025436665.1_261   -            300 Resfam_vanA          -            343   2.1e-42  149.0   2.7   2   2   3.6e-41   1.1e-36  130.1   0.3    90   336    51   290    44   297 0.88 from NZ_CP007453.1
+WP_012406699.1_410   -            357 Resfam_vanA          -            343   3.9e-16   62.6   0.2   1   2    0.0071   2.2e+02    4.2   0.0     3    34     4    35     2    50 0.81 from NC_010627.1
+WP_012406699.1_410   -            357 Resfam_vanA          -            343   3.9e-16   62.6   0.2   2   2   9.5e-19     3e-14   56.4   0.0    95   335    90   337    82   342 0.80 from NC_010627.1
+WP_013851055.1_103   -            296 Resfam_vanA          -            343   9.6e-14   54.7   0.0   1   1   4.7e-18   1.5e-13   54.1   0.0    95   336    29   277    21   282 0.81 from NC_015597.1
+WP_013851011.1_17    -            321 Resfam_vanA          -            343   4.4e-13   52.6   0.0   1   1   7.4e-17   2.3e-12   50.2   0.0    89   319    67   293    58   299 0.81 from NC_015597.1
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/vanA/originaldata/vanA.hmm
+# Target file:     /mnt/research/ShadeLab/WorkingSpace/Dunivin/as_ncbi/refsoil/plasmid.protein.fa
+# Option settings: /opt/software/HMMER/3.1b2--GCC-4.8.3/bin/hmmsearch -o /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/vanA.plasmid.protein.fa.stdout.txt -A /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/vanA.plasmid.protein.fa.alignment.0.0000000001.txt --domtblout /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/vanA.plasmid.protein.fa.0.0000000001.tbl.txt -E 0.0000000001 --cpu 8 /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/vanA/originaldata/vanA.hmm /mnt/research/ShadeLab/WorkingSpace/Dunivin/as_ncbi/refsoil/plasmid.protein.fa 
+# Current dir:     /mnt/research/ShadeLab/Dunivin/hmmsearch/bin
+# Date:            Tue May 22 14:06:37 2018
+# [ok]

@@ -1,0 +1,89 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+CFNIH1_RS06065       -            263 Resfam_ANT3          -            263  1.1e-164  553.4   1.2   1   1  2.5e-169  1.2e-164  553.2   1.2     1   263     1   263     1   263 1.00 from NZ_CP007557
+STMDT12_RS19855      -            263 Resfam_ANT3          -            263  1.1e-164  553.4   1.2   1   1  2.5e-169  1.2e-164  553.2   1.2     1   263     1   263     1   263 1.00 from NC_016860
+NCGM2_RS08740        -            263 Resfam_ANT3          -            263  1.1e-164  553.4   1.1   1   1  2.5e-169  1.2e-164  553.2   1.1     1   263     1   263     1   263 1.00 from NC_017549
+PSESU_RS15780        -            263 Resfam_ANT3          -            263  1.1e-164  553.4   1.1   1   1  2.5e-169  1.2e-164  553.2   1.1     1   263     1   263     1   263 1.00 from NC_014924
+SN31241_RS03315      -            262 Resfam_ANT3          -            263  3.9e-141  476.2   0.1   1   1  8.8e-146  4.3e-141  476.1   0.1     1   262     1   262     1   262 0.99 from NC_021902
+VAPAR_RS28075        -            269 Resfam_ANT3          -            263  2.1e-114  388.6   0.0   1   1  4.7e-119  2.3e-114  388.4   0.0     2   261     2   261     1   263 0.98 from NC_012792
+BCEP18194_RS33275    -            263 Resfam_ANT3          -            263  5.5e-113  383.9   0.6   1   1  1.2e-117  6.1e-113  383.8   0.6     1   261     1   261     1   263 0.99 from NC_007511
+MMA_RS08235          -            263 Resfam_ANT3          -            263  1.2e-112  382.8   1.0   1   1  2.9e-117  1.4e-112  382.5   1.0     3   259     3   259     1   262 0.98 from NC_009659
+BCENMC03_RS17960     -            263 Resfam_ANT3          -            263  3.6e-110  374.7   0.3   1   1  8.1e-115    4e-110  374.6   0.3     1   261     1   261     1   263 0.98 from NC_010515
+DM42_RS07830         -            263 Resfam_ANT3          -            263  1.3e-109  372.9   0.8   1   1  2.9e-114  1.4e-109  372.7   0.8     4   261     4   261     1   263 0.98 from NZ_CP007786
+MXAN_RS08235         -            272 Resfam_ANT3          -            263  1.1e-106  363.2   0.1   1   1  2.8e-111  1.4e-106  362.9   0.1     1   260     1   260     1   262 0.99 from NC_008095
+RALTA_RS19735        -            264 Resfam_ANT3          -            263  1.1e-105  360.0   0.2   1   1  2.8e-110  1.4e-105  359.7   0.2     4   242     5   243     2   262 0.95 from NC_010530
+BB_RS06075           -            263 Resfam_ANT3          -            263  1.4e-104  356.3   0.4   1   1  3.2e-109  1.6e-104  356.2   0.4     6   260     6   260     1   263 0.98 from NC_002927
+BN112_2235           -            263 Resfam_ANT3          -            263  4.7e-104  354.6   0.3   1   1    1e-108  5.1e-104  354.5   0.3     6   261     6   261     1   263 0.98 from NC_019382
+PSJM300_RS03565      -            265 Resfam_ANT3          -            263    6e-104  354.3   0.0   1   1  1.4e-108    7e-104  354.1   0.0     5   257     5   257     1   262 0.98 from NC_018177
+AXYL_RS18460         -            266 Resfam_ANT3          -            263  9.3e-101  343.8   0.1   1   1  2.1e-105    1e-100  343.7   0.1     7   260     7   261     1   264 0.97 from NC_014640
+SMWW4_RS18655        -            267 Resfam_ANT3          -            263  9.3e-101  343.8   0.1   1   1  2.1e-105    1e-100  343.7   0.1     1   261     1   261     1   263 0.99 from NC_020211
+PMEN_RS10990         -            258 Resfam_ANT3          -            263  1.8e-100  342.9   0.3   1   1  4.2e-105    2e-100  342.7   0.3    11   260     3   251     1   254 0.98 from NC_009439
+PST_RS10960          -            262 Resfam_ANT3          -            263   2.4e-90  309.7   0.2   1   1     6e-95   2.9e-90  309.4   0.2     8   257     4   252     1   255 0.98 from NC_009434
+PSTAA_RS11045        -            262 Resfam_ANT3          -            263   7.6e-90  308.1   0.3   1   1   1.8e-94   9.1e-90  307.8   0.3     8   256     4   251     1   255 0.98 from NC_017532
+A3UG_RS22025         -            260 Resfam_ANT3          -            263   3.1e-87  299.5   0.2   1   1   7.3e-92   3.6e-87  299.3   0.2    10   259     8   257     2   260 0.98 from NC_018079
+CFNIH1_RS14080       -            262 Resfam_ANT3          -            263   1.7e-82  284.0   0.8   1   1   3.8e-87   1.8e-82  283.9   0.8     5   261     5   261     1   262 0.98 from NZ_CP007557
+DR96_RS15610         -            280 Resfam_ANT3          -            263   1.3e-78  271.3   0.1   1   1   3.1e-83   1.5e-78  271.0   0.1     5   260    22   277    18   280 0.93 from NZ_CP008920
+SN31241_RS11595      -            262 Resfam_ANT3          -            263   2.9e-76  263.6   0.0   1   1   6.9e-81   3.4e-76  263.3   0.0     6   257     6   257     1   261 0.97 from NC_021902
+SNSL254_RS07610      -            262 Resfam_ANT3          -            263   2.9e-76  263.6   0.0   1   1   6.9e-81   3.4e-76  263.3   0.0     6   257     6   257     1   261 0.97 from NC_011080
+SPA_RS07930          -            262 Resfam_ANT3          -            263   2.9e-76  263.6   0.0   1   1   6.9e-81   3.4e-76  263.3   0.0     6   257     6   257     1   261 0.97 from NC_006511
+SEHA_RS07195         -            262 Resfam_ANT3          -            263     3e-76  263.5   0.0   1   1   7.3e-81   3.6e-76  263.2   0.0     6   257     6   257     1   261 0.97 from NC_011083
+SESA_RS07070         -            262 Resfam_ANT3          -            263   3.6e-76  263.2   0.0   1   1   8.5e-81   4.2e-76  263.0   0.0     6   257     6   257     1   261 0.97 from NC_011094
+STM1264              -            262 Resfam_ANT3          -            263   6.3e-76  262.4   0.0   1   1   1.5e-80   7.4e-76  262.2   0.0     6   257     6   257     1   261 0.97 from NC_003197
+STM14_RS07175        -            262 Resfam_ANT3          -            263   6.3e-76  262.4   0.0   1   1   1.5e-80   7.4e-76  262.2   0.0     6   257     6   257     1   261 0.97 from NC_016856
+STM474_RS06275       -            262 Resfam_ANT3          -            263   6.3e-76  262.4   0.0   1   1   1.5e-80   7.4e-76  262.2   0.0     6   257     6   257     1   261 0.97 from NC_016857
+STMDT12_RS06575      -            262 Resfam_ANT3          -            263   6.3e-76  262.4   0.0   1   1   1.5e-80   7.4e-76  262.2   0.0     6   257     6   257     1   261 0.97 from NC_016860
+STMMW_RS06565        -            262 Resfam_ANT3          -            263   6.3e-76  262.4   0.0   1   1   1.5e-80   7.4e-76  262.2   0.0     6   257     6   257     1   261 0.97 from NC_016854
+STMUK_RS06280        -            262 Resfam_ANT3          -            263   6.3e-76  262.4   0.0   1   1   1.5e-80   7.4e-76  262.2   0.0     6   257     6   257     1   261 0.97 from NC_016863
+UMN798_RS06280       -            262 Resfam_ANT3          -            263   6.3e-76  262.4   0.0   1   1   1.5e-80   7.4e-76  262.2   0.0     6   257     6   257     1   261 0.97 from NC_017046
+SCH_RS06790          -            262 Resfam_ANT3          -            263   8.7e-76  262.0   0.0   1   1   2.1e-80     1e-75  261.7   0.0     6   257     6   257     1   261 0.97 from NC_006905
+SPUL_RS05175         -            262 Resfam_ANT3          -            263   9.1e-76  261.9   0.1   1   1   2.2e-80   1.1e-75  261.7   0.1     8   257     8   257     1   261 0.97 from NC_016831
+SEAG_RS09300         -            262 Resfam_ANT3          -            263   1.2e-75  261.5   0.0   1   1   2.9e-80   1.4e-75  261.3   0.0     6   257     6   257     1   261 0.97 from NC_011149
+STBHUCCB_RS05845     -            262 Resfam_ANT3          -            263   2.9e-75  260.2   0.0   1   1     7e-80   3.4e-75  260.0   0.0     6   257     6   257     1   261 0.97 from NC_016832
+TY21A_RS05850        -            262 Resfam_ANT3          -            263   2.9e-75  260.2   0.0   1   1     7e-80   3.4e-75  260.0   0.0     6   257     6   257     1   261 0.97 from NC_021176
+T_RS05830            -            262 Resfam_ANT3          -            263   2.9e-75  260.2   0.0   1   1     7e-80   3.4e-75  260.0   0.0     6   257     6   257     1   261 0.97 from NC_004631
+MYSTI_RS28935        -            268 Resfam_ANT3          -            263   3.6e-75  260.0   0.1   1   1   9.1e-80   4.4e-75  259.7   0.1     8   258     9   259     2   263 0.98 from NC_020126
+HELO_RS10555         -            259 Resfam_ANT3          -            263   1.9e-63  221.5   0.1   1   1   4.2e-68   2.1e-63  221.4   0.1     7   261     4   256     1   258 0.96 from NC_014532
+CCEL_RS14135         -            272 Resfam_ANT3          -            263   2.4e-63  221.2   0.0   1   1   6.1e-68     3e-63  220.9   0.0     7   260    18   269    12   271 0.95 from NC_011898
+CKL_RS12775          -            272 Resfam_ANT3          -            263   2.4e-63  221.2   0.0   1   1   6.3e-68   3.1e-63  220.8   0.0     7   260    18   269    12   271 0.95 from NC_009706
+CKR_RS12295          -            272 Resfam_ANT3          -            263   2.4e-63  221.2   0.0   1   1   6.3e-68   3.1e-63  220.8   0.0     7   260    18   269    12   271 0.95 from NC_011837
+DSY_RS23225          -            260 Resfam_ANT3          -            263   1.6e-61  215.3   0.0   1   1   3.7e-66   1.8e-61  215.0   0.0    14   260    13   257     4   260 0.95 from NC_007907
+DHAF_RS04795         -            260 Resfam_ANT3          -            263   1.4e-60  212.1   0.0   1   1   3.4e-65   1.7e-60  211.9   0.0    14   260    13   257     4   260 0.95 from NC_011830
+DESDE_RS08250        -            262 Resfam_ANT3          -            263   2.9e-59  207.8   0.1   1   1     7e-64   3.4e-59  207.6   0.1     9   261    10   260     4   262 0.96 from NC_018017
+SVEN_RS01050         -            258 Resfam_ANT3          -            263   2.4e-54  191.7   0.1   1   1   5.6e-59   2.7e-54  191.5   0.1    10   259     7   254     1   257 0.95 from NC_018750
+HELO_RS07075         -            238 Resfam_ANT3          -            263   2.8e-53  188.2   1.1   1   1   8.2e-56     4e-51  181.1   1.1    18   260    11   235     2   238 0.90 from NC_014532
+AZOBR_RS04575        -            267 Resfam_ANT3          -            263   3.1e-53  188.0   0.1   1   1   8.2e-58     4e-53  187.7   0.1    12   258    14   261     8   265 0.94 from NC_016617
+ABAZ39_RS05360       -            267 Resfam_ANT3          -            263   3.8e-53  187.7   0.1   1   1   9.9e-58   4.9e-53  187.4   0.1    12   258    14   261     9   265 0.94 from NZ_CP007793
+O3I_RS09240          -            241 Resfam_ANT3          -            263   1.7e-51  182.4   0.3   1   1   4.3e-56   2.1e-51  182.0   0.3    27   248     5   222     2   235 0.94 from NC_018681
+RG1141_RS04390       -            258 Resfam_ANT3          -            263   4.7e-50  177.6   0.2   1   1   1.1e-54   5.2e-50  177.5   0.2    15   250    14   247     3   258 0.93 from NZ_HG938355
+XNR_RS16015          -            252 Resfam_ANT3          -            263   2.6e-49  175.2   0.1   1   1   6.1e-54     3e-49  175.0   0.1    11   238     3   224     1   245 0.93 from NC_020990
+BJAB07104_RS00860    -            262 Resfam_ANT3          -            263   2.9e-48  171.7   0.0   1   1   7.5e-53   3.7e-48  171.4   0.0    12   236     6   228     3   255 0.91 from NC_021726
+BJAB0868_RS00860     -            262 Resfam_ANT3          -            263   2.9e-48  171.7   0.0   1   1   7.5e-53   3.7e-48  171.4   0.0    12   236     6   228     3   255 0.91 from NC_021729
+BJAB0715_RS00925     -            262 Resfam_ANT3          -            263   5.4e-48  170.9   0.0   1   1   1.4e-52   6.7e-48  170.6   0.0    12   235     6   227     3   255 0.92 from NC_021733
+CLJ_RS19035          -            231 Resfam_ANT3          -            263   7.8e-48  170.3   0.0   1   1     2e-52   9.7e-48  170.0   0.0    39   255     8   222     3   227 0.97 from NC_012658
+LPC_RS05370          -            277 Resfam_ANT3          -            263   2.3e-46  165.5   0.0   1   1   6.1e-51     3e-46  165.2   0.0    11   238    15   240    10   263 0.94 from NC_009494
+SINME_RS27530        -            258 Resfam_ANT3          -            263   4.2e-46  164.7   0.1   1   1     1e-50     5e-46  164.4   0.1    14   257    12   254     4   258 0.93 from NC_015591
+BN159_RS01585        -            283 Resfam_ANT3          -            263   1.6e-45  162.8   0.0   1   1     4e-50     2e-45  162.5   0.0    11   258     2   247     1   251 0.88 from NC_020504
+NMUL_RS14765         -            136 Resfam_ANT3          -            263   8.8e-40  143.9   0.2   1   1     2e-44   9.9e-40  143.8   0.2   150   260     3   113     1   116 0.97 from NC_007614
+SVIR_RS10060         -            254 Resfam_ANT3          -            263     1e-30  114.2   0.1   1   1   2.7e-35   1.3e-30  113.9   0.1    17   243     9   239     3   252 0.90 from NC_013159
+KNP414_RS23345       -            261 Resfam_ANT3          -            263   4.1e-18   72.9   0.0   1   1   9.4e-23   4.6e-18   72.7   0.0     9   259     3   251     1   255 0.91 from NC_015690
+MU9_RS11195          -            120 Resfam_ANT3          -            263   5.2e-18   72.6   0.4   1   1   1.2e-22   5.7e-18   72.4   0.4   146   235     4    94     1   105 0.91 from NC_020418
+B2K_RS22860          -            260 Resfam_ANT3          -            263   6.3e-18   72.3   0.0   1   1   1.5e-22   7.3e-18   72.1   0.0     8   260     2   251     1   254 0.92 from NC_017672
+PM3016_RS22405       -            261 Resfam_ANT3          -            263   3.4e-17   69.9   0.0   1   1   7.7e-22   3.8e-17   69.8   0.0     9   259     3   251     1   255 0.90 from NC_016935
+OB_RS11045           -            259 Resfam_ANT3          -            263   2.1e-16   67.3   0.0   1   1   5.4e-21   2.7e-16   67.0   0.0    14   244     8   238     1   254 0.86 from NC_004193
+ABC_RS10280          -            254 Resfam_ANT3          -            263   4.3e-13   56.4   0.0   1   1   1.1e-17   5.2e-13   56.2   0.0    12   259     6   250     1   253 0.88 from NC_006582
+CLOCL_RS16910        -            262 Resfam_ANT3          -            263   4.4e-12   53.1   0.0   1   1   1.1e-16   5.4e-12   52.9   0.0    24   234    18   227     7   250 0.88 from NC_016627
+MLP_RS07485          -            281 Resfam_ANT3          -            263   1.2e-11   51.7   0.3   1   1   3.1e-16   1.5e-11   51.4   0.3    16   240    27   253    17   268 0.87 from NC_015635
+BCAV_RS02285         -            292 Resfam_ANT3          -            263   1.6e-11   51.3   0.1   1   1   4.4e-16   2.1e-11   50.9   0.1     9   232    24   253    18   266 0.86 from NC_012669
+DEIPE_RS14475        -            258 Resfam_ANT3          -            263   7.3e-11   49.1   0.1   1   2   1.8e-08    0.0009   25.9   0.0     8    66     8    67     1    99 0.85 from NC_019793
+DEIPE_RS14475        -            258 Resfam_ANT3          -            263   7.3e-11   49.1   0.1   2   2     4e-07      0.02   21.5   0.1   138   253   130   245   119   254 0.76 from NC_019793
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/ANT3/originaldata/ANT3.hmm
+# Target file:     /mnt/research/ShadeLab/WorkingSpace/Dunivin/as_ncbi/refsoil/bacteria.protein.fa
+# Option settings: /opt/software/HMMER/3.1b2--GCC-4.8.3/bin/hmmsearch -o /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/ANT3.bacteria.protein.fa.stdout.txt -A /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/ANT3.bacteria.protein.fa.alignment.0.0000000001.txt --domtblout /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/ANT3.bacteria.protein.fa.0.0000000001.tbl.txt -E 0.0000000001 --cpu 8 /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/ANT3/originaldata/ANT3.hmm /mnt/research/ShadeLab/WorkingSpace/Dunivin/as_ncbi/refsoil/bacteria.protein.fa 
+# Current dir:     /mnt/research/ShadeLab/Dunivin/hmmsearch/bin
+# Date:            Tue May 22 14:01:37 2018
+# [ok]

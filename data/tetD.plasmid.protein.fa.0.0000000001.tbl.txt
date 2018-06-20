@@ -1,0 +1,40 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+WP_001039466.1_117   -            394 Resfam_TetD          -            394  2.6e-266  886.3  34.1   1   1  3.5e-270  2.9e-266  886.1  34.1     1   394     1   394     1   394 1.00 from NC_009651.1
+WP_001089068.1_169   -            401 Resfam_TetD          -            394  1.8e-154  518.0  28.9   1   1  2.7e-158  2.2e-154  517.8  28.9     1   381     1   383     1   393 0.96 from NC_016825.1
+WP_000804064.1_35    -            399 Resfam_TetD          -            394    1e-113  383.8  23.9   1   1  1.6e-117  1.3e-113  383.5  23.9     2   378     4   382     3   387 0.97 from NC_011092.1
+WP_000804064.1_4     -            399 Resfam_TetD          -            394    1e-113  383.8  23.9   1   1  1.6e-117  1.3e-113  383.5  23.9     2   378     4   382     3   387 0.97 from NC_006856.1
+WP_000804063.1_47    -            399 Resfam_TetD          -            394  1.2e-113  383.6  24.1   1   1  1.8e-117  1.5e-113  383.3  24.1     2   378     4   382     3   389 0.97 from NC_009140.1
+WP_012695206.1_84    -            407 Resfam_TetD          -            394   8.3e-66  226.1  27.5   1   1   1.4e-69   1.1e-65  225.7  27.5     6   371     9   380     3   400 0.88 from NC_012529.1
+WP_014249925.1_79    -            415 Resfam_TetD          -            394   1.8e-52  182.2  25.8   1   1   2.9e-56   2.4e-52  181.8  25.8     7   358    14   369     7   396 0.92 from NC_016624.1
+WP_042446635.1_250   -            415 Resfam_TetD          -            394   3.2e-51  178.0  23.7   1   1   3.9e-55   3.2e-51  178.0  23.7     5   357    12   368     8   374 0.94 from NC_013859.1
+WP_015242008.1_325   -            419 Resfam_TetD          -            394   2.7e-24   89.4  28.3   1   1   4.5e-28   3.7e-24   89.0  28.3     9   361    26   381    22   412 0.85 from NC_019848.2
+81                   -            419 Resfam_TetD          -            394   2.4e-23   86.3  28.4   1   1   4.2e-27   3.4e-23   85.8  28.4     9   360    26   380    22   408 0.85 from NC_017324.1
+WP_011875662.1_233   -            441 Resfam_TetD          -            394     2e-14   56.9  27.8   1   1   1.6e-17   1.3e-13   54.2  27.8    15   356    25   381    15   401 0.74 from NC_009227.1
+WP_011992964.1_62    -            406 Resfam_TetD          -            394   1.8e-13   53.8   7.3   1   2   2.2e-17   1.8e-13   53.8   7.3    16   152    12   153     2   163 0.86 from NC_009717.1
+WP_011992964.1_62    -            406 Resfam_TetD          -            394   1.8e-13   53.8   7.3   2   2      0.97   7.9e+03   -1.0  12.1    99   169   309   380   218   389 0.70 from NC_009717.1
+NP_149193.1_28       -            399 Resfam_TetD          -            394     2e-13   53.6  20.5   1   2   1.1e-14     9e-11   44.9   7.2    12   194    15   201     3   232 0.70 from NC_001988.2
+NP_149193.1_28       -            399 Resfam_TetD          -            394     2e-13   53.6  20.5   2   2     4e-05      0.33   13.4   7.8    15   176   222   386   208   397 0.61 from NC_001988.2
+WP_010890714.1_30    -            399 Resfam_TetD          -            394     2e-13   53.6  20.5   1   2   1.1e-14     9e-11   44.9   7.2    12   194    15   201     3   232 0.70 from NC_017296.1
+WP_010890714.1_30    -            399 Resfam_TetD          -            394     2e-13   53.6  20.5   2   2     4e-05      0.33   13.4   7.8    15   176   222   386   208   397 0.61 from NC_017296.1
+WP_010890714.1_30    -            399 Resfam_TetD          -            394     2e-13   53.6  20.5   1   2   1.1e-14     9e-11   44.9   7.2    12   194    15   201     3   232 0.70 from NC_015686.1
+WP_010890714.1_30    -            399 Resfam_TetD          -            394     2e-13   53.6  20.5   2   2     4e-05      0.33   13.4   7.8    15   176   222   386   208   397 0.61 from NC_015686.1
+WP_028861462.1_430   -            405 Resfam_TetD          -            394   5.8e-13   52.1  32.5   1   1   9.1e-17   7.4e-13   51.7  32.5    13   371    17   381     5   403 0.74 from NZ_CM002756.1
+WP_011003732.1_413   -            405 Resfam_TetD          -            394   1.5e-12   50.7  32.6   1   1   2.4e-16     2e-12   50.3  32.6    13   371    17   381     5   403 0.74 from NZ_CM002758.1
+WP_011003732.1_431   -            405 Resfam_TetD          -            394   1.5e-12   50.7  32.6   1   1   2.4e-16     2e-12   50.3  32.6    13   371    17   381     5   403 0.74 from NC_003296.1
+WP_020829777.1_456   -            405 Resfam_TetD          -            394   3.2e-12   49.6  32.6   1   1   5.1e-16   4.2e-12   49.3  32.6    13   371    17   381     5   403 0.74 from NC_021745.1
+WP_012405726.1_1015  -            420 Resfam_TetD          -            394   4.7e-12   49.1  27.3   1   1     7e-16   5.7e-12   48.8  25.1    18   350    46   386    34   390 0.81 from NC_010625.1
+WP_014631028.1_415   -            405 Resfam_TetD          -            394   1.1e-11   47.8  32.9   1   1   2.2e-15   1.8e-11   47.2  32.9    13   371    17   381     5   403 0.73 from NC_017589.1
+WP_012945023.1_144   -            400 Resfam_TetD          -            394   2.9e-11   46.5  29.5   1   1   4.6e-15   3.8e-11   46.1  29.5     9   352    21   360    15   378 0.87 from NC_013744.1
+WP_013209459.1_357   -            405 Resfam_TetD          -            394     8e-11   45.0  33.2   1   1     2e-14   1.7e-10   44.0  33.2    13   372    17   382     4   403 0.73 from NC_014310.1
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/tetD/originaldata/tetD.hmm
+# Target file:     /mnt/research/ShadeLab/WorkingSpace/Dunivin/as_ncbi/refsoil/plasmid.protein.fa
+# Option settings: /opt/software/HMMER/3.1b2--GCC-4.8.3/bin/hmmsearch -o /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/tetD.plasmid.protein.fa.stdout.txt -A /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/tetD.plasmid.protein.fa.alignment.0.0000000001.txt --domtblout /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/tetD.plasmid.protein.fa.0.0000000001.tbl.txt -E 0.0000000001 --cpu 8 /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/tetD/originaldata/tetD.hmm /mnt/research/ShadeLab/WorkingSpace/Dunivin/as_ncbi/refsoil/plasmid.protein.fa 
+# Current dir:     /mnt/research/ShadeLab/Dunivin/hmmsearch/bin
+# Date:            Tue May 22 14:06:34 2018
+# [ok]

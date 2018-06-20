@@ -1,0 +1,547 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%DocumentNeededResources: font Helvetica
+%%+ font Helvetica-Bold
+%%+ font Helvetica-Oblique
+%%+ font Helvetica-BoldOblique
+%%+ font Symbol
+%%Title: R Graphics Output
+%%Creator: R Software
+%%Pages: (atend)
+%%BoundingBox: 0 0 581 404
+%%EndComments
+%%BeginProlog
+/bp  { gs sRGB gs } def
+% begin .ps.prolog
+/gs  { gsave } bind def
+/gr  { grestore } bind def
+/ep  { showpage gr gr } bind def
+/m   { moveto } bind def
+/l  { rlineto } bind def
+/np  { newpath } bind def
+/cp  { closepath } bind def
+/f   { fill } bind def
+/o   { stroke } bind def
+/c   { newpath 0 360 arc } bind def
+/r   { 4 2 roll moveto 1 copy 3 -1 roll exch 0 exch rlineto 0 rlineto -1 mul 0 exch rlineto closepath } bind def
+/p1  { stroke } bind def
+/p2  { gsave bg fill grestore newpath } bind def
+/p3  { gsave bg fill grestore stroke } bind def
+/p6  { gsave bg eofill grestore newpath } bind def
+/p7  { gsave bg eofill grestore stroke } bind def
+/t   { 5 -2 roll moveto gsave rotate
+       1 index stringwidth pop
+       mul neg 0 rmoveto show grestore } bind def
+/ta  { 4 -2 roll moveto gsave rotate show } bind def
+/tb  { 2 -1 roll 0 rmoveto show } bind def
+/cl  { grestore gsave newpath 3 index 3 index moveto 1 index
+       4 -1 roll lineto  exch 1 index lineto lineto
+       closepath clip newpath } bind def
+/rgb { setrgbcolor } bind def
+/s   { scalefont setfont } bind def
+% end   .ps.prolog
+/sRGB { [ /CIEBasedABC
+          << /DecodeLMN
+               [ { dup 0.03928 le
+                        {12.92321 div}
+                        {0.055 add 1.055 div 2.4 exp }
+                     ifelse
+                 } bind dup dup
+               ]
+             /MatrixLMN [0.412457 0.212673 0.019334
+                         0.357576 0.715152 0.119192
+                         0.180437 0.072175 0.950301]
+             /WhitePoint [0.9505 1.0 1.0890]
+           >>
+         ] setcolorspace } bind def
+/srgb { setcolor } bind def
+%%IncludeResource: font Helvetica
+/Helvetica findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+  end
+/Font1 exch definefont pop
+%%IncludeResource: font Helvetica-Bold
+/Helvetica-Bold findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+  end
+/Font2 exch definefont pop
+%%IncludeResource: font Helvetica-Oblique
+/Helvetica-Oblique findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+  end
+/Font3 exch definefont pop
+%%IncludeResource: font Helvetica-BoldOblique
+/Helvetica-BoldOblique findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+  end
+/Font4 exch definefont pop
+%%IncludeResource: font Symbol
+/Symbol findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  currentdict
+  end
+/Font5 exch definefont pop
+%%EndProlog
+%%Page: 1 1
+bp
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+52.63 0.00 528.37 404.00 cl
+0.00 0.00 581.00 404.00 cl
+63.04 8.22 453.34 398.52 cl
+/bg { 0.6980 0.8745 0.5412 srgb } def
+np
+ 258.19 203.37 m
+-1.47 5.18 l
+-1.48 5.17 l
+-1.47 5.18 l
+-1.48 5.18 l
+-1.47 5.18 l
+-1.48 5.17 l
+-1.47 5.18 l
+-1.48 5.18 l
+-1.47 5.18 l
+-1.48 5.17 l
+-1.47 5.18 l
+-1.48 5.18 l
+-1.48 5.18 l
+-1.47 5.17 l
+-1.48 5.18 l
+-1.47 5.18 l
+-1.48 5.18 l
+-1.47 5.17 l
+-1.48 5.18 l
+-1.47 5.18 l
+-1.48 5.18 l
+-1.47 5.17 l
+-1.48 5.18 l
+-1.47 5.18 l
+-1.48 5.18 l
+-1.47 5.17 l
+-1.48 5.18 l
+-1.47 5.18 l
+-1.48 5.18 l
+-5.07 -1.54 l
+-5.01 -1.71 l
+-4.95 -1.88 l
+-4.89 -2.04 l
+-4.81 -2.21 l
+-4.74 -2.37 l
+-4.65 -2.53 l
+-4.57 -2.69 l
+-4.47 -2.84 l
+-4.37 -2.99 l
+-4.27 -3.14 l
+-4.16 -3.28 l
+-4.04 -3.42 l
+-3.93 -3.55 l
+-3.81 -3.69 l
+-3.67 -3.81 l
+-3.55 -3.94 l
+-3.41 -4.05 l
+-3.27 -4.17 l
+-3.13 -4.27 l
+-2.98 -4.38 l
+-2.83 -4.48 l
+-2.67 -4.57 l
+-2.52 -4.66 l
+-2.37 -4.74 l
+-2.19 -4.82 l
+-2.04 -4.89 l
+-1.87 -4.96 l
+-1.69 -5.01 l
+-1.53 -5.08 l
+-1.35 -5.12 l
+-1.18 -5.16 l
+-1.00 -5.20 l
+-0.83 -5.23 l
+-0.65 -5.26 l
+-0.47 -5.28 l
+-0.29 -5.29 l
+-0.11 -5.29 l
+0.07 -5.30 l
+0.25 -5.29 l
+0.43 -5.28 l
+0.61 -5.26 l
+0.78 -5.24 l
+0.96 -5.21 l
+1.14 -5.17 l
+1.31 -5.13 l
+1.49 -5.09 l
+1.66 -5.03 l
+1.83 -4.97 l
+1.99 -4.91 l
+2.16 -4.83 l
+2.33 -4.76 l
+2.48 -4.68 l
+2.64 -4.59 l
+2.80 -4.50 l
+2.95 -4.40 l
+3.09 -4.30 l
+3.24 -4.19 l
+3.38 -4.08 l
+3.51 -3.97 l
+3.65 -3.84 l
+3.77 -3.71 l
+3.90 -3.59 l
+4.02 -3.45 l
+4.14 -3.31 l
+4.24 -3.17 l
+4.35 -3.02 l
+4.45 -2.88 l
+4.54 -2.72 l
+4.63 -2.57 l
+189.58 63.13 lineto
+4.80 -2.24 l
+4.87 -2.09 l
+4.94 -1.91 l
+5.00 -1.75 l
+5.05 -1.58 l
+5.11 -1.40 l
+5.15 -1.23 l
+5.19 -1.06 l
+5.23 -0.88 l
+5.25 -0.70 l
+5.27 -0.52 l
+5.29 -0.34 l
+5.29 -0.17 l
+5.30 0.02 l
+5.29 0.20 l
+5.28 0.37 l
+5.27 0.56 l
+5.25 0.73 l
+5.22 0.91 l
+5.18 1.09 l
+5.14 1.26 l
+5.10 1.43 l
+5.05 1.61 l
+4.99 1.78 l
+4.93 1.95 l
+4.85 2.11 l
+4.79 2.27 l
+4.70 2.44 l
+4.62 2.60 l
+4.52 2.75 l
+4.44 2.90 l
+4.33 3.05 l
+4.22 3.20 l
+4.11 3.33 l
+4.00 3.48 l
+3.88 3.61 l
+3.75 3.74 l
+3.62 3.86 l
+3.49 3.98 l
+3.36 4.10 l
+3.21 4.22 l
+3.07 4.31 l
+2.92 4.42 l
+2.77 4.52 l
+2.61 4.61 l
+2.45 4.69 l
+2.30 4.77 l
+2.13 4.85 l
+1.97 4.92 l
+1.79 4.99 l
+1.63 5.04 l
+1.46 5.09 l
+1.28 5.14 l
+1.11 5.18 l
+0.93 5.21 l
+0.75 5.25 l
+0.57 5.26 l
+0.40 5.28 l
+0.22 5.30 l
+0.03 5.29 l
+-0.14 5.30 l
+-0.32 5.28 l
+-0.50 5.28 l
+-0.68 5.25 l
+-0.86 5.23 l
+-1.04 5.19 l
+-1.21 5.16 l
+-1.38 5.11 l
+-1.56 5.07 l
+-1.73 5.00 l
+-1.89 4.95 l
+-2.07 4.88 l
+-2.23 4.80 l
+-2.39 4.73 l
+-2.54 4.64 l
+-2.71 4.56 l
+-2.86 4.46 l
+-3.00 4.36 l
+-3.16 4.25 l
+-3.29 4.15 l
+-3.44 4.03 l
+-3.57 3.91 l
+-3.70 3.79 l
+-3.83 3.67 l
+-3.94 3.53 l
+-4.07 3.39 l
+-4.18 3.26 l
+-4.29 3.11 l
+-4.39 2.96 l
+-4.49 2.81 l
+-4.58 2.66 l
+-4.67 2.51 l
+-4.75 2.34 l
+-4.82 2.18 l
+-4.90 2.01 l
+-4.97 1.85 l
+-5.02 1.68 l
+-5.08 1.50 l
+-5.13 1.34 l
+289.76 356.27 lineto
+-5.21 0.98 l
+-5.24 0.80 l
+-5.25 0.63 l
+-5.28 0.45 l
+-5.29 0.27 l
+-5.30 0.09 l
+0 -5.38 l
+0 -5.39 l
+0 -5.38 l
+0 -5.38 l
+0 -5.39 l
+0 -5.38 l
+0 -5.38 l
+0 -5.39 l
+0 -5.38 l
+0 -5.38 l
+0 -5.39 l
+0 -5.38 l
+0 -5.38 l
+0 -5.39 l
+0 -5.38 l
+0 -5.39 l
+0 -5.38 l
+0 -5.38 l
+0 -5.39 l
+0 -5.38 l
+0 -5.38 l
+0 -5.39 l
+0 -5.38 l
+0 -5.38 l
+0 -5.39 l
+0 -5.38 l
+0 -5.38 l
+0 -5.39 l
+0 -5.38 l
+0 0 l
+cp p2
+/bg { 0.1216 0.4706 0.7059 srgb } def
+np
+ 258.19 203.37 m
+0 5.38 l
+0 5.39 l
+0 5.38 l
+0 5.38 l
+0 5.39 l
+0 5.38 l
+0 5.38 l
+0 5.39 l
+0 5.38 l
+0 5.38 l
+0 5.39 l
+0 5.38 l
+0 5.38 l
+0 5.39 l
+0 5.38 l
+0 5.39 l
+0 5.38 l
+0 5.38 l
+0 5.39 l
+0 5.38 l
+0 5.38 l
+0 5.39 l
+0 5.38 l
+0 5.38 l
+0 5.39 l
+0 5.38 l
+0 5.38 l
+0 5.39 l
+0 5.38 l
+-5.41 -0.09 l
+-5.41 -0.29 l
+-5.40 -0.46 l
+-5.38 -0.66 l
+-5.35 -0.84 l
+-5.31 -1.03 l
+-5.28 -1.21 l
+-5.24 -1.39 l
+1.48 -5.18 l
+1.47 -5.18 l
+1.48 -5.18 l
+1.47 -5.17 l
+1.48 -5.18 l
+1.47 -5.18 l
+1.48 -5.18 l
+1.47 -5.17 l
+1.48 -5.18 l
+1.47 -5.18 l
+1.48 -5.18 l
+1.47 -5.17 l
+1.48 -5.18 l
+1.47 -5.18 l
+1.48 -5.18 l
+1.47 -5.17 l
+1.48 -5.18 l
+1.48 -5.18 l
+1.47 -5.18 l
+1.48 -5.17 l
+1.47 -5.18 l
+1.48 -5.18 l
+1.47 -5.18 l
+1.48 -5.17 l
+1.47 -5.18 l
+1.48 -5.18 l
+1.47 -5.18 l
+1.48 -5.17 l
+1.47 -5.18 l
+0 0 l
+cp p2
+/Font1 findfont 14 s
+0 0 0 srgb
+268.99 121.03 (95.6%) .5 0 t
+247.39 275.65 (4.4%) .5 0 t
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+gsave
+470.35 154.06 translate
+17.28 86.40 scale
+8 dict dup begin
+  /ImageType 1 def
+  /Width 17 def
+  /Height 86 def
+  /BitsPerComponent 8 def
+  /Decode [0 1 0 1 0 1] def
+  /DataSource currentfile /ASCIIHexDecode filter def
+  /ImageMatrix [17 0 0 -86 0 86] def
+end
+image
+b1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab1de8ab0dd8bb0dd8bb0dd8bb0dd8bb0dd8bb0dd8bb0dd8bb0dd8bb0dd8bb0dd8bb0dd8bb0dd8bb0dd8bb0dd8bb0dd8bb0dd8bb0dd8bafdc8bafdc8bafdc8bafdc8bafdc8bafdc8bafdc8bafdc8bafdc8bafdc8bafdc8bafdc8bafdc8bafdc8bafdc8bafdc8bafdc8baedb8caedb8caedb8caedb8caedb8caedb8caedb8caedb8caedb8caedb8caedb8caedb8caedb8caedb8caedb8caedb8caedb8cacd98dacd98dacd98dacd98dacd98dacd98dacd98dacd98dacd98dacd98dacd98dacd98dacd98dacd98dacd98dacd98dacd98dabd88eabd88eabd88eabd88eabd88eabd88eabd88eabd88eabd88eabd88eabd88eabd88eabd88eabd88eabd88eabd88eabd88eaad68eaad68eaad68eaad68eaad68eaad68eaad68eaad68eaad68eaad68eaad68eaad68eaad68eaad68eaad68eaad68eaad68ea9d58fa9d58fa9d58fa9d58fa9d58fa9d58fa9d58fa9d58fa9d58fa9d58fa9d58fa9d58fa9d58fa9d58fa9d58fa9d58fa9d58fa7d390a7d390a7d390a7d390a7d390a7d390a7d390a7d390a7d390a7d390a7d390a7d390a7d390a7d390a7d390a7d390a7d390a7d290a7d290a7d290a7d290a7d290a7d290a7d290a7d290a7d290a7d290a7d290a7d290a7d290a7d290a7d290a7d290a7d290a6d191a6d191a6d191a6d191a6d191a6d191a6d191a6d191a6d191a6d191a6d191a6d191a6d191a6d191a6d191a6d191a6d191a5d091a5d091a5d091a5d091a5d091a5d091a5d091a5d091a5d091a5d091a5d091a5d091a5d091a5d091a5d091a5d091a5d091a4cf92a4cf92a4cf92a4cf92a4cf92a4cf92a4cf92a4cf92a4cf92a4cf92a4cf92a4cf92a4cf92a4cf92a4cf92a4cf92a4cf92a2cd92a2cd92a2cd92a2cd92a2cd92a2cd92a2cd92a2cd92a2cd92a2cd92a2cd92a2cd92a2cd92a2cd92a2cd92a2cd92a2cd92a1cc93a1cc93a1cc93a1cc93a1cc93a1cc93a1cc93a1cc93a1cc93a1cc93a1cc93a1cc93a1cc93a1cc93a1cc93a1cc93a1cc939fca949fca949fca949fca949fca949fca949fca949fca949fca949fca949fca949fca949fca949fca949fca949fca949fca949ec9959ec9959ec9959ec9959ec9959ec9959ec9959ec9959ec9959ec9959ec9959ec9959ec9959ec9959ec9959ec9959ec9959cc7959cc7959cc7959cc7959cc7959cc7959cc7959cc7959cc7959cc7959cc7959cc7959cc7959cc7959cc7959cc7959cc7959bc6969bc6969bc6969bc6969bc6969bc6969bc6969bc6969bc6969bc6969bc6969bc6969bc6969bc6969bc6969bc6969bc6969ac5969ac5969ac5969ac5969ac5969ac5969ac5969ac5969ac5969ac5969ac5969ac5969ac5969ac5969ac5969ac5969ac59699c49799c49799c49799c49799c49799c49799c49799c49799c49799c49799c49799c49799c49799c49799c49799c49799c49798c39798c39798c39798c39798c39798c39798c39798c39798c39798c39798c39798c39798c39798c39798c39798c39798c39796c19896c19896c19896c19896c19896c19896c19896c19896c19896c19896c19896c19896c19896c19896c19896c19896c19895c09895c09895c09895c09895c09895c09895c09895c09895c09895c09895c09895c09895c09895c09895c09895c09895c09894bf9994bf9994bf9994bf9994bf9994bf9994bf9994bf9994bf9994bf9994bf9994bf9994bf9994bf9994bf9994bf9994bf9993be9993be9993be9993be9993be9993be9993be9993be9993be9993be9993be9993be9993be9993be9993be9993be9993be9991bc9a91bc9a91bc9a91bc9a91bc9a91bc9a91bc9a91bc9a91bc9a91bc9a91bc9a91bc9a91bc9a91bc9a91bc9a91bc9a91bc9a90bb9b90bb9b90bb9b90bb9b90bb9b90bb9b90bb9b90bb9b90bb9b90bb9b90bb9b90bb9b90bb9b90bb9b90bb9b90bb9b90bb9b8fba9b8fba9b8fba9b8fba9b8fba9b8fba9b8fba9b8fba9b8fba9b8fba9b8fba9b8fba9b8fba9b8fba9b8fba9b8fba9b8fba9b8eb99c8eb99c8eb99c8eb99c8eb99c8eb99c8eb99c8eb99c8eb99c8eb99c8eb99c8eb99c8eb99c8eb99c8eb99c8eb99c8eb99c8cb79d8cb79d8cb79d8cb79d8cb79d8cb79d8cb79d8cb79d8cb79d8cb79d8cb79d8cb79d8cb79d8cb79d8cb79d8cb79d8cb79d8bb69d8bb69d8bb69d8bb69d8bb69d8bb69d8bb69d8bb69d8bb69d8bb69d8bb69d8bb69d8bb69d8bb69d8bb69d8bb69d8bb69d8ab59e8ab59e8ab59e8ab59e8ab59e8ab59e8ab59e8ab59e8ab59e8ab59e8ab59e8ab59e8ab59e8ab59e8ab59e8ab59e8ab59e88b39e88b39e88b39e88b39e88b39e88b39e88b39e88b39e88b39e88b39e88b39e88b39e88b39e88b39e88b39e88b39e88b39e87b29f87b29f87b29f87b29f87b29f87b29f87b29f87b29f87b29f87b29f87b29f87b29f87b29f87b29f87b29f87b29f87b29f85b19f85b19f85b19f85b19f85b19f85b19f85b19f85b19f85b19f85b19f85b19f85b19f85b19f85b19f85b19f85b19f85b19f84afa084afa084afa084afa084afa084afa084afa084afa084afa084afa084afa084afa084afa084afa084afa084afa084afa082aea082aea082aea082aea082aea082aea082aea082aea082aea082aea082aea082aea082aea082aea082aea082aea082aea081ada181ada181ada181ada181ada181ada181ada181ada181ada181ada181ada181ada181ada181ada181ada181ada181ada17faca17faca17faca17faca17faca17faca17faca17faca17faca17faca17faca17faca17faca17faca17faca17faca17faca17eaaa27eaaa27eaaa27eaaa27eaaa27eaaa27eaaa27eaaa27eaaa27eaaa27eaaa27eaaa27eaaa27eaaa27eaaa27eaaa27eaaa27ca9a27ca9a27ca9a27ca9a27ca9a27ca9a27ca9a27ca9a27ca9a27ca9a27ca9a27ca9a27ca9a27ca9a27ca9a27ca9a27ca9a27ba8a27ba8a27ba8a27ba8a27ba8a27ba8a27ba8a27ba8a27ba8a27ba8a27ba8a27ba8a27ba8a27ba8a27ba8a27ba8a27ba8a279a7a379a7a379a7a379a7a379a7a379a7a379a7a379a7a379a7a379a7a379a7a379a7a379a7a379a7a379a7a379a7a379a7a378a6a378a6a378a6a378a6a378a6a378a6a378a6a378a6a378a6a378a6a378a6a378a6a378a6a378a6a378a6a378a6a378a6a376a4a476a4a476a4a476a4a476a4a476a4a476a4a476a4a476a4a476a4a476a4a476a4a476a4a476a4a476a4a476a4a476a4a475a3a475a3a475a3a475a3a475a3a475a3a475a3a475a3a475a3a475a3a475a3a475a3a475a3a475a3a475a3a475a3a475a3a473a2a573a2a573a2a573a2a573a2a573a2a573a2a573a2a573a2a573a2a573a2a573a2a573a2a573a2a573a2a573a2a573a2a572a1a572a1a572a1a572a1a572a1a572a1a572a1a572a1a572a1a572a1a572a1a572a1a572a1a572a1a572a1a572a1a572a1a5709fa6709fa6709fa6709fa6709fa6709fa6709fa6709fa6709fa6709fa6709fa6709fa6709fa6709fa6709fa6709fa6709fa66f9ea66f9ea66f9ea66f9ea66f9ea66f9ea66f9ea66f9ea66f9ea66f9ea66f9ea66f9ea66f9ea66f9ea66f9ea66f9ea66f9ea66d9da76d9da76d9da76d9da76d9da76d9da76d9da76d9da76d9da76d9da76d9da76d9da76d9da76d9da76d9da76d9da76d9da76c9ca76c9ca76c9ca76c9ca76c9ca76c9ca76c9ca76c9ca76c9ca76c9ca76c9ca76c9ca76c9ca76c9ca76c9ca76c9ca76c9ca76a9ba86a9ba86a9ba86a9ba86a9ba86a9ba86a9ba86a9ba86a9ba86a9ba86a9ba86a9ba86a9ba86a9ba86a9ba86a9ba86a9ba86899a86899a86899a86899a86899a86899a86899a86899a86899a86899a86899a86899a86899a86899a86899a86899a86899a86698a96698a96698a96698a96698a96698a96698a96698a96698a96698a96698a96698a96698a96698a96698a96698a96698a96597a96597a96597a96597a96597a96597a96597a96597a96597a96597a96597a96597a96597a96597a96597a96597a96597a96396aa6396aa6396aa6396aa6396aa6396aa6396aa6396aa6396aa6396aa6396aa6396aa6396aa6396aa6396aa6396aa6396aa6194aa6194aa6194aa6194aa6194aa6194aa6194aa6194aa6194aa6194aa6194aa6194aa6194aa6194aa6194aa6194aa6194aa5f93ab5f93ab5f93ab5f93ab5f93ab5f93ab5f93ab5f93ab5f93ab5f93ab5f93ab5f93ab5f93ab5f93ab5f93ab5f93ab5f93ab5d92ab5d92ab5d92ab5d92ab5d92ab5d92ab5d92ab5d92ab5d92ab5d92ab5d92ab5d92ab5d92ab5d92ab5d92ab5d92ab5d92ab5b91ac5b91ac5b91ac5b91ac5b91ac5b91ac5b91ac5b91ac5b91ac5b91ac5b91ac5b91ac5b91ac5b91ac5b91ac5b91ac5b91ac598fac598fac598fac598fac598fac598fac598fac598fac598fac598fac598fac598fac598fac598fac598fac598fac598fac588eac588eac588eac588eac588eac588eac588eac588eac588eac588eac588eac588eac588eac588eac588eac588eac588eac568dad568dad568dad568dad568dad568dad568dad568dad568dad568dad568dad568dad568dad568dad568dad568dad568dad548cad548cad548cad548cad548cad548cad548cad548cad548cad548cad548cad548cad548cad548cad548cad548cad548cad518bad518bad518bad518bad518bad518bad518bad518bad518bad518bad518bad518bad518bad518bad518bad518bad518bad4f89ae4f89ae4f89ae4f89ae4f89ae4f89ae4f89ae4f89ae4f89ae4f89ae4f89ae4f89ae4f89ae4f89ae4f89ae4f89ae4f89ae4d88ae4d88ae4d88ae4d88ae4d88ae4d88ae4d88ae4d88ae4d88ae4d88ae4d88ae4d88ae4d88ae4d88ae4d88ae4d88ae4d88ae4b87af4b87af4b87af4b87af4b87af4b87af4b87af4b87af4b87af4b87af4b87af4b87af4b87af4b87af4b87af4b87af4b87af4886af4886af4886af4886af4886af4886af4886af4886af4886af4886af4886af4886af4886af4886af4886af4886af4886af4684b04684b04684b04684b04684b04684b04684b04684b04684b04684b04684b04684b04684b04684b04684b04684b04684b04383b04383b04383b04383b04383b04383b04383b04383b04383b04383b04383b04383b04383b04383b04383b04383b04383b04082b14082b14082b14082b14082b14082b14082b14082b14082b14082b14082b14082b14082b14082b14082b14082b14082b13e81b13e81b13e81b13e81b13e81b13e81b13e81b13e81b13e81b13e81b13e81b13e81b13e81b13e81b13e81b13e81b13e81b13b80b13b80b13b80b13b80b13b80b13b80b13b80b13b80b13b80b13b80b13b80b13b80b13b80b13b80b13b80b13b80b13b80b1387fb2387fb2387fb2387fb2387fb2387fb2387fb2387fb2387fb2387fb2387fb2387fb2387fb2387fb2387fb2387fb2387fb2347eb2347eb2347eb2347eb2347eb2347eb2347eb2347eb2347eb2347eb2347eb2347eb2347eb2347eb2347eb2347eb2347eb2317db2317db2317db2317db2317db2317db2317db2317db2317db2317db2317db2317db2317db2317db2317db2317db2317db22d7cb32d7cb32d7cb32d7cb32d7cb32d7cb32d7cb32d7cb32d7cb32d7cb32d7cb32d7cb32d7cb32d7cb32d7cb32d7cb32d7cb3287bb3287bb3287bb3287bb3287bb3287bb3287bb3287bb3287bb3287bb3287bb3287bb3287bb3287bb3287bb3287bb3287bb32479b42479b42479b42479b42479b42479b42479b42479b42479b42479b42479b42479b42479b42479b42479b42479b42479b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b41f78b4>
+grestore
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+/Font1 findfont 9 s
+0 0 0 srgb
+491.95 169.41 (1e+06) 0 0 t
+491.95 189.93 (2e+06) 0 0 t
+491.95 210.45 (3e+06) 0 0 t
+491.95 230.97 (4e+06) 0 0 t
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+/Font1 findfont 11 s
+0 0 0 srgb
+470.35 244.78 (total.Kbp) 0 0 t
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+1 1 1 srgb
+0.38 setlinewidth
+[] 0 setdash
+0 setlinecap
+1 setlinejoin
+10.00 setmiterlimit
+np
+470.35 172.64 m
+3.46 0 l
+o
+np
+470.35 193.16 m
+3.46 0 l
+o
+np
+470.35 213.68 m
+3.46 0 l
+o
+np
+470.35 234.20 m
+3.46 0 l
+o
+np
+484.17 172.64 m
+3.46 0 l
+o
+np
+484.17 193.16 m
+3.46 0 l
+o
+np
+484.17 213.68 m
+3.46 0 l
+o
+np
+484.17 234.20 m
+3.46 0 l
+o
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+0.00 0.00 581.00 404.00 cl
+ep
+%%Trailer
+%%Pages: 1
+%%EOF

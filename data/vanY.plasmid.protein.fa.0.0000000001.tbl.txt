@@ -1,0 +1,20 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+WP_012960995.1_81    -            240 Resfam_vanY          -            327   2.8e-30  109.0   0.1   1   1   1.2e-34   3.9e-30  108.5   0.1   123   271    93   238    89   240 0.84 from NC_013792.1
+WP_012740852.1_551   -            317 Resfam_vanY          -            327   1.2e-27  100.4   3.1   1   2   7.4e-05       2.3   10.7   0.4     8    86     9    87     3   103 0.54 from NC_012780.1
+WP_012740852.1_551   -            317 Resfam_vanY          -            327   1.2e-27  100.4   3.1   2   2   4.3e-29   1.4e-24   90.3   0.1   116   270   162   309   114   314 0.89 from NC_012780.1
+WP_000853162.1_193   -            278 Resfam_vanY          -            327   1.9e-27   99.7   3.3   1   1   9.9e-32   3.1e-27   99.0   3.3    78   273    60   274     8   277 0.75 from NC_018516.1
+WP_013483941.1_298   -            337 Resfam_vanY          -            327   9.9e-25   90.8   0.0   1   1   6.9e-29   2.2e-24   89.6   0.0   130   270   198   330   175   335 0.88 from NC_014825.1
+WP_074628920.1_111   -            100 Resfam_vanY          -            327   7.8e-16   61.5   0.4   1   1   2.8e-20   8.7e-16   61.4   0.4   200   274    21   100    13   100 0.82 from NZ_CP004877.1
+WP_074628920.1_191   -            100 Resfam_vanY          -            327   7.8e-16   61.5   0.4   1   1   2.8e-20   8.7e-16   61.4   0.4   200   274    21   100    13   100 0.82 from NZ_CP007616.1
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/vanY/originaldata/vanY.hmm
+# Target file:     /mnt/research/ShadeLab/WorkingSpace/Dunivin/as_ncbi/refsoil/plasmid.protein.fa
+# Option settings: /opt/software/HMMER/3.1b2--GCC-4.8.3/bin/hmmsearch -o /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/vanY.plasmid.protein.fa.stdout.txt -A /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/vanY.plasmid.protein.fa.alignment.0.0000000001.txt --domtblout /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/vanY.plasmid.protein.fa.0.0000000001.tbl.txt -E 0.0000000001 --cpu 8 /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/vanY/originaldata/vanY.hmm /mnt/research/ShadeLab/WorkingSpace/Dunivin/as_ncbi/refsoil/plasmid.protein.fa 
+# Current dir:     /mnt/research/ShadeLab/Dunivin/hmmsearch/bin
+# Date:            Tue May 22 14:06:39 2018
+# [ok]

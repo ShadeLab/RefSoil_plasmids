@@ -1,0 +1,17 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+MPET_RS02650         -            635 Resfam_vanA          -            343   5.3e-22   80.7   0.0   1   1   3.8e-26   7.8e-22   80.2   0.0   112   335   384   620   376   626 0.87 from NC_014507
+MPSY_RS06555         -            638 Resfam_vanA          -            343     7e-20   73.7   0.0   1   1   7.3e-24   1.5e-19   72.6   0.0   108   336   386   626   363   631 0.86 from NC_018876
+MM_RS05460           -            700 Resfam_vanA          -            343   9.1e-17   63.5   0.0   1   1   6.6e-21   1.3e-16   62.9   0.0   109   340   394   636   385   639 0.83 from NC_003901
+MA_RS22750           -            703 Resfam_vanA          -            343     1e-12   50.2   0.0   1   1   7.8e-17   1.6e-12   49.5   0.0   110   335   397   633   389   640 0.85 from NC_003552
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/vanA/originaldata/vanA.hmm
+# Target file:     /mnt/research/ShadeLab/WorkingSpace/Dunivin/as_ncbi/refsoil/archaea.protein.fa
+# Option settings: /opt/software/HMMER/3.1b2--GCC-4.8.3/bin/hmmsearch -o /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/vanA.archaea.protein.fa.stdout.txt -A /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/vanA.archaea.protein.fa.alignment.0.0000000001.txt --domtblout /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/vanA.archaea.protein.fa.0.0000000001.tbl.txt -E 0.0000000001 --cpu 8 /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/vanA/originaldata/vanA.hmm /mnt/research/ShadeLab/WorkingSpace/Dunivin/as_ncbi/refsoil/archaea.protein.fa 
+# Current dir:     /mnt/research/ShadeLab/Dunivin/hmmsearch/bin
+# Date:            Tue May 22 14:06:23 2018
+# [ok]

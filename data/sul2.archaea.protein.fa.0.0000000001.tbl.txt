@@ -1,0 +1,40 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+HTUR_RS16175         -            847 tet_sul2             -            272   1.6e-40  141.4   7.1   1   1   8.2e-44   2.9e-40  140.6   7.1     7   251   584   824   579   840 0.93 from NC_013743
+HVO_RS09925          -            838 tet_sul2             -            272   1.8e-38  134.7   6.0   1   2      0.34   1.2e+03    0.8   0.2    52   100   236   288   208   292 0.73 from NC_013967
+HVO_RS09925          -            838 tet_sul2             -            272   1.8e-38  134.7   6.0   2   2   5.1e-42   1.8e-38  134.7   6.0     5   251   569   811   565   830 0.92 from NC_013967
+HMUK_RS15245         -            817 tet_sul2             -            272   4.4e-33  117.0   5.4   1   1   2.7e-36   9.5e-33  115.9   5.4     7   260   554   803   549   812 0.91 from NC_013202
+MZHIL_RS00335        -            411 tet_sul2             -            272   3.2e-28  101.1   1.9   1   1   1.4e-31   4.8e-28  100.5   1.9     7   265    20   272    15   278 0.91 from NC_015676
+FACI_RS04265         -            333 tet_sul2             -            272   4.3e-28  100.7   0.0   1   1   1.6e-31   5.7e-28  100.3   0.0     2   264    71   326    70   331 0.91 from NC_021592
+PTO_RS02900          -            322 tet_sul2             -            272   7.3e-28   99.9   0.0   1   1   2.9e-31     1e-27   99.4   0.0     6   256    69   312    65   320 0.89 from NC_005877
+TA_RS00410           -            347 tet_sul2             -            272   1.9e-26   95.2   0.1   1   1   7.6e-30   2.7e-26   94.8   0.1     7   262    87   336    82   342 0.91 from NC_002578
+MBOO_RS11430         -            270 tet_sul2             -            272   5.3e-26   93.8   0.2   1   1   2.6e-29   9.3e-26   93.0   0.2     7   261    19   263    17   270 0.93 from NC_009712
+MA_RS18380           -            408 tet_sul2             -            272   1.4e-25   92.4   0.9   1   1   6.6e-29   2.3e-25   91.7   0.9     7   265    20   272    17   278 0.90 from NC_003552
+MM_RS02365           -            408 tet_sul2             -            272   1.6e-25   92.3   0.8   1   1   7.3e-29   2.6e-25   91.6   0.8     7   265    20   272    17   278 0.90 from NC_003901
+TVG_RS00815          -            340 tet_sul2             -            272   1.9e-25   92.0   0.0   1   1   6.7e-29   2.4e-25   91.7   0.0     7   260    87   334    83   340 0.89 from NC_002689
+MBAR_RS12290         -            408 tet_sul2             -            272   3.2e-25   91.2   0.3   1   1   1.5e-28   5.3e-25   90.5   0.3     7   257    20   264    17   277 0.90 from NC_007355
+TUZN_RS01375         -            296 tet_sul2             -            272   4.6e-25   90.7   1.2   1   2     1e-16   3.6e-13   51.7   0.1     6   180    18   188    14   200 0.83 from NC_015315
+TUZN_RS01375         -            296 tet_sul2             -            272   4.6e-25   90.7   1.2   2   2   1.5e-12   5.5e-09   38.0   0.1   192   264   223   292   216   295 0.84 from NC_015315
+MMAH_RS09550         -            411 tet_sul2             -            272   4.9e-24   87.4   0.9   1   1   2.1e-27   7.4e-24   86.8   0.9     5   264    18   271    14   276 0.89 from NC_014002
+MPET_RS03640         -            269 tet_sul2             -            272   7.6e-24   86.7   0.1   1   1   5.1e-27   1.8e-23   85.5   0.1     6   262    18   264    14   268 0.88 from NC_014507
+TTX_RS03150          -            304 tet_sul2             -            272   1.1e-23   86.3   0.5   1   2   9.8e-18   3.5e-14   55.1   0.1     6   179    18   187    15   196 0.85 from NC_016070
+TTX_RS03150          -            304 tet_sul2             -            272   1.1e-23   86.3   0.5   2   2     6e-10   2.1e-06   29.5   0.0   193   253   221   281   216   296 0.84 from NC_016070
+MPSY_RS08495         -            411 tet_sul2             -            272   1.5e-23   85.7   1.6   1   1   6.4e-27   2.3e-23   85.2   1.6     7   265    20   273    15   278 0.90 from NC_018876
+VMUT_RS04035         -            323 tet_sul2             -            272   1.1e-22   82.9   3.7   1   2   5.2e-16   1.8e-12   49.4   1.5     7   179    19   190    15   198 0.81 from NC_015151
+VMUT_RS04035         -            323 tet_sul2             -            272   1.1e-22   82.9   3.7   2   2   3.6e-11   1.3e-07   33.5   0.0   197   266   232   303   222   307 0.87 from NC_015151
+MPAL_RS03765         -            270 tet_sul2             -            272   8.2e-22   80.1   1.8   1   1   4.7e-25   1.7e-21   79.1   1.8     7   266    19   268    15   270 0.86 from NC_011832
+TK_RS05715           -            272 tet_sul2             -            272   5.3e-20   74.1   0.0   1   1     2e-23     7e-20   73.7   0.0     7   261    13   264     8   270 0.87 from NC_006624
+HTUR_RS09055         -            397 tet_sul2             -            272     5e-19   70.9   0.6   1   1   2.1e-22   7.4e-19   70.4   0.6     7   269    19   289    17   291 0.84 from NC_013743
+HVO_RS18765          -            379 tet_sul2             -            272   9.4e-17   63.5   1.9   1   1   4.1e-19   1.5e-15   59.6   1.9     7   257    19   260    16   273 0.79 from NC_013967
+HMUK_RS13430         -            391 tet_sul2             -            272   1.4e-14   56.4   1.5   1   1   1.1e-17   4.1e-14   54.8   1.5     7   252    19   272    15   285 0.78 from NC_013202
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/sul2/originaldata/sul2.hmm
+# Target file:     /mnt/research/ShadeLab/WorkingSpace/Dunivin/as_ncbi/refsoil/archaea.protein.fa
+# Option settings: /opt/software/HMMER/3.1b2--GCC-4.8.3/bin/hmmsearch -o /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/sul2.archaea.protein.fa.stdout.txt -A /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/sul2.archaea.protein.fa.alignment.0.0000000001.txt --domtblout /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/sul2.archaea.protein.fa.0.0000000001.tbl.txt -E 0.0000000001 --cpu 8 /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/sul2/originaldata/sul2.hmm /mnt/research/ShadeLab/WorkingSpace/Dunivin/as_ncbi/refsoil/archaea.protein.fa 
+# Current dir:     /mnt/research/ShadeLab/Dunivin/hmmsearch/bin
+# Date:            Tue May 22 14:06:21 2018
+# [ok]

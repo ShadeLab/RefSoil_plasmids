@@ -1,0 +1,38 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+PTO_RS07965          -            384 Resfam_TetD          -            394   1.6e-34  121.9  23.4   1   1   4.3e-38   2.1e-34  121.5  23.4     5   356     5   345     1   376 0.87 from NC_005877
+MTC_RS03565          -            411 Resfam_TetD          -            394   8.9e-30  106.3  27.7   1   1   4.2e-33     2e-29  105.1  27.6     8   354    10   370     4   384 0.77 from NC_017034
+RCI_RS01025          -            434 Resfam_TetD          -            394   3.1e-27   97.9  28.2   1   2   7.7e-22   3.7e-18   68.0  12.3    14   177    17   178     4   205 0.88 from NC_009464
+RCI_RS01025          -            434 Resfam_TetD          -            394   3.1e-27   97.9  28.2   2   2   2.7e-12   1.3e-08   36.6   6.8   213   355   241   385   235   412 0.90 from NC_009464
+RCI_RS03620          -            409 Resfam_TetD          -            394   6.2e-27   96.9  26.3   1   2   3.3e-27   1.6e-23   85.7  21.7    14   336    20   355     7   357 0.72 from NC_009464
+RCI_RS03620          -            409 Resfam_TetD          -            394   6.2e-27   96.9  26.3   2   2   1.4e-08   6.5e-05   24.4   7.3    48   169   264   390   255   402 0.75 from NC_009464
+HMUK_RS04460         -            439 Resfam_TetD          -            394   1.4e-26   95.7  33.7   1   1   3.8e-29   1.8e-25   92.0  33.7     7   355    11   395     6   421 0.74 from NC_013202
+MM_RS12085           -            448 Resfam_TetD          -            394   4.1e-26   94.2  27.3   1   1   1.1e-27   5.3e-24   87.2  27.3    10   360    20   410    13   436 0.76 from NC_003901
+MA_RS06980           -            443 Resfam_TetD          -            394     2e-25   91.9  25.3   1   1   3.6e-27   1.7e-23   85.5  25.2    10   358    20   408    13   432 0.78 from NC_003552
+RCI_RS02715          -            410 Resfam_TetD          -            394   3.5e-24   87.8  32.1   1   2   1.5e-24   7.4e-21   76.9  16.3     6   244     9   242     4   253 0.85 from NC_009464
+RCI_RS02715          -            410 Resfam_TetD          -            394   3.5e-24   87.8  32.1   2   2   2.6e-06     0.013   16.8   7.9    41   176   257   394   251   410 0.86 from NC_009464
+MPSY_RS03980         -            441 Resfam_TetD          -            394     1e-22   83.0  27.0   1   1   1.7e-24     8e-21   76.8  27.0    10   362    20   412    12   431 0.77 from NC_018876
+HVO_RS09460          -            437 Resfam_TetD          -            394   2.1e-22   82.0  27.2   1   2   5.8e-26   2.8e-22   81.6  22.9     7   280    12   304     7   396 0.81 from NC_013967
+HVO_RS09460          -            437 Resfam_TetD          -            394   2.1e-22   82.0  27.2   2   2      0.38   1.8e+03   -0.1   2.1   112   167   360   416   306   433 0.67 from NC_013967
+MZHIL_RS06820        -            435 Resfam_TetD          -            394   2.8e-20   75.0  32.1   1   2   1.3e-22   6.1e-19   70.6  26.8     9   351    14   400    10   406 0.76 from NC_015676
+MZHIL_RS06820        -            435 Resfam_TetD          -            394   2.8e-20   75.0  32.1   2   2     0.021        99    4.0   1.7   142   178   389   425   380   430 0.74 from NC_015676
+MM_RS07570           -            444 Resfam_TetD          -            394   1.1e-19   73.0  22.1   1   2   1.4e-15   6.7e-12   47.4   8.8     8   178    22   214    15   237 0.78 from NC_003901
+MM_RS07570           -            444 Resfam_TetD          -            394   1.1e-19   73.0  22.1   2   2   5.8e-09   2.8e-05   25.6   5.4   207   377   264   431   241   438 0.88 from NC_003901
+MPAL_RS06795         -            400 Resfam_TetD          -            394   2.7e-19   71.7  31.0   1   1   8.9e-23   4.3e-19   71.1  31.0     9   354    13   365     6   389 0.79 from NC_011832
+RCI_RS00535          -            435 Resfam_TetD          -            394     3e-18   68.3  27.7   1   1   8.5e-21   4.1e-17   64.6  27.7     7   355    11   392     6   417 0.70 from NC_009464
+MBAR_RS04380         -            449 Resfam_TetD          -            394   2.5e-17   65.3  28.7   1   2   6.8e-11   3.3e-07   31.9   2.1     9   110    26   124    19   128 0.87 from NC_007355
+MBAR_RS04380         -            449 Resfam_TetD          -            394   2.5e-17   65.3  28.7   2   2   4.8e-12   2.3e-08   35.7  19.1    94   356   130   413   124   437 0.77 from NC_007355
+MA_RS00915           -            450 Resfam_TetD          -            394   3.1e-16   61.7  22.7   1   1   2.5e-17   1.2e-13   53.2  22.7    10   355    31   416    24   441 0.75 from NC_003552
+RCI_RS04565          -            395 Resfam_TetD          -            394   2.8e-15   58.5  35.5   1   2   3.4e-18   1.6e-14   56.0  13.7     4   190     6   194     3   208 0.84 from NC_009464
+RCI_RS04565          -            395 Resfam_TetD          -            394   2.8e-15   58.5  35.5   2   2    0.0013       6.3    8.0  14.8     5   179   204   383   198   392 0.72 from NC_009464
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/tetD/originaldata/tetD.hmm
+# Target file:     /mnt/research/ShadeLab/WorkingSpace/Dunivin/as_ncbi/refsoil/archaea.protein.fa
+# Option settings: /opt/software/HMMER/3.1b2--GCC-4.8.3/bin/hmmsearch -o /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/tetD.archaea.protein.fa.stdout.txt -A /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/tetD.archaea.protein.fa.alignment.0.0000000001.txt --domtblout /mnt/research/ShadeLab/Dunivin/hmmsearch/beta_lactam/tetD.archaea.protein.fa.0.0000000001.tbl.txt -E 0.0000000001 --cpu 8 /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/tetD/originaldata/tetD.hmm /mnt/research/ShadeLab/WorkingSpace/Dunivin/as_ncbi/refsoil/archaea.protein.fa 
+# Current dir:     /mnt/research/ShadeLab/Dunivin/hmmsearch/bin
+# Date:            Tue May 22 14:06:21 2018
+# [ok]
