@@ -16,7 +16,7 @@ wd <- print(getwd())
 #############################################
 #temporarily change working directory to data to bulk load files
 setwd("data")
-
+  
 #read in abundance data
 names=list.files(pattern="*.tbl.txt")
 data <- do.call(rbind, lapply(names, function(X) {
