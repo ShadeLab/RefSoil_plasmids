@@ -106,6 +106,22 @@ data.quality.f <- data.quality.f[!duplicated(data.quality.f$t.name),]
 #save table to output
 write.table(data.quality.f, paste(wd, "/output/ARG_summary.txt", sep = ""), sep = "\t", quote = FALSE, row.names = FALSE)
 
+#prep table for supplemental material
+data.quality.f.pub <- data.quality.f %>%
+  select(-c(t.length:q.length, bias1:acc, max.score,calc.min)) %>%
+  mutate(Sample = gsub("bacteria.protein.fa", "Bacterial genome", Sample),
+         Sample = gsub("archaea.protein.fa", "Archaeal genome", Sample),
+         Sample = gsub("plasmid.protein.fa", "Plasmid", Sample)) %>%
+  separate(t.name, into = c("p1", "p2", "p3"), sep = "_") %>%
+  unite(col = `Protein accession`, p1, p2, sep = "_") %>%
+  rename(Score = score1,
+         `Alignment length` = length,
+         `Percent alignment` = perc.ali) %>%
+  select(-p3)
+
+#save table to output
+write.table(data.quality.f.pub, paste(wd, "/output/ARG_summary_clean.txt", sep = ""), sep = "\t", quote = FALSE, row.names = FALSE)
+
 #######################################
 #PREPARE REFSOIL METADATA FOR ANALYSIS#
 #######################################
