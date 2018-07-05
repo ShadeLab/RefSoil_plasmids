@@ -311,6 +311,19 @@ refsoil.plasmids <- ncbi.tidy %>%
     xlab("Plasmid number"))
 ggsave(plasmid.hist, filename = "figures/plasmid.hist.eps", units = "in", height = 1.8, width = 2.5)
 
+#calculate mean plasmid number
+mean(refsoil.plasmids$plasmid)
+median(refsoil.plasmids$plasmid)
+
+(number.dist <- refsoil.plasmids %>%
+  melt() %>%
+ggplot(aes(x = variable, y = value)) +
+  geom_boxplot() +
+  ylab("Number of genetic elements") +
+  xlab("Type of genetic element") +
+  theme_bw())
+ggsave(number.dist, filename = "figures/plasmid_number_dist.eps", units = "in", width = 3.5, height = 3)
+
 #######################################
 #ANALYZE REFSOIL GENOME/PLASMID MAKEUP#
 #######################################
@@ -367,9 +380,9 @@ size.p <- size %>%
   theme_classic(base_size = 10))
 ggsave(size.plasmid, filename = "figures/plasmid.size.hist.eps", units = "in", height = 1.8, width = 2.5)
 
-
-
-###LALALALALALALA###
+###############################
+#PLASMID DIFFER BTWN ORGANISMS#
+###############################
 duplicates <- ncbi[which(duplicated(ncbi$Organism)),]
 
 #extract duplicated organisms
