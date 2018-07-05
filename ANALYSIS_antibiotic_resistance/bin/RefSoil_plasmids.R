@@ -109,9 +109,11 @@ write.table(data.quality.f, paste(wd, "/output/ARG_summary.txt", sep = ""), sep 
 #prep table for supplemental material
 data.quality.f.pub <- data.quality.f %>%
   select(-c(t.length:q.length, bias1:acc, max.score,calc.min)) %>%
-  mutate(Sample = gsub("bacteria.protein.fa", "Bacterial genome", Sample),
-         Sample = gsub("archaea.protein.fa", "Archaeal genome", Sample),
-         Sample = gsub("plasmid.protein.fa", "Plasmid", Sample)) %>%
+  mutate(Sample=gsub("bacteria.protein.fa","Bacterial genome",Sample),
+         Sample=gsub("archaea.protein.fa","Archaeal genome", Sample),
+         Sample=gsub("plasmid.protein.fa", "Plasmid", Sample),
+         Gene = as.factor(Gene),
+         Gene = fct_relevel(Gene)) %>%
   separate(t.name, into = c("p1", "p2", "p3"), sep = "_") %>%
   unite(col = `Protein accession`, p1, p2, sep = "_") %>%
   rename(Score = score1,
@@ -120,7 +122,7 @@ data.quality.f.pub <- data.quality.f %>%
   select(-p3)
 
 #save table to output
-write.table(data.quality.f.pub, paste(wd, "/output/ARG_summary_clean.txt", sep = ""), sep = "\t", quote = FALSE, row.names = FALSE)
+write.table(data.quality.f.pub, paste(wd, "/output/ARG_summary_clean.csv", sep = ""), sep = ",", quote = FALSE, row.names = FALSE)
 
 #######################################
 #PREPARE REFSOIL METADATA FOR ANALYSIS#
@@ -364,3 +366,69 @@ size.p <- size %>%
   xlab("Plasmid size (Kbps)") +
   theme_classic(base_size = 10))
 ggsave(size.plasmid, filename = "figures/plasmid.size.hist.eps", units = "in", height = 1.8, width = 2.5)
+
+
+
+###LALALALALALALA###
+duplicates <- ncbi[which(duplicated(ncbi$Organism)),]
+
+#extract duplicated organisms
+dup.df <- ncbi.tidy %>%
+  subset(Organism %in% duplicates$Organism) %>%
+  subset(Contains.plasmid !=FALSE) %>%
+  mutate(NCBI.ID = gsub("\\..*", "", NCBI.ID)) %>%
+  left_join(size.p, by = "NCBI.ID") %>%
+  mutate(Source = ifelse(Contains.plasmid == FALSE, "plasmid1", Source)) %>%
+  subset(Source !="NCBI.ID") %>%
+  subset(Source !="NCBI.ID2") %>%
+  mutate(Organism = as.factor(Organism))
+
+#order by organism
+dup.df$`RefSoil ID` <- factor(dup.df$`RefSoil ID`, 
+                              dup.df$`RefSoil ID`[order(dup.df$Organism)])
+
+(duplicate.plot <- ggplot(dup.df, aes(x = `RefSoil ID`, y = Source,
+                                      size = V3/1000,
+                                      color = Organism)) +
+    geom_point() +
+    scale_color_brewer(palette = "Dark2") +
+    coord_flip() +
+    theme_bw(base_size = 10) +
+    ylab("Plasmid") +
+    ylim(2,NA) +
+    labs(size = "Plasmid size (kbp)") +
+    theme(axis.text.x = element_blank()))
+
+#############################
+#PLASMID SIZE VS GENOME SIZE#
+#############################
+#prep taxonomy for size annotation
+ncbi.tidy.size <- ncbi.tidy %>%
+  mutate(NCBI.ID = gsub("\\..*", "", NCBI.ID),
+         NCBI.ID = trimws(NCBI.ID))
+
+#annotate element size by taxonomy
+size.annotated <- size %>%
+  rename(NCBI.ID = V2) %>%
+  left_join(ncbi.tidy.size, by = "NCBI.ID") %>%
+  mutate(id = gsub("plasmid_size_refsoil_tab.txt", "plasmid", id),
+         id = gsub(".*_size_refsoil_tab.txt", "genome", id)) %>%
+  group_by(Kingdom, Phylum, Organism, `RefSoil ID`, id) %>%
+  summarise(mean_size = mean(V3),
+            tot_size = sum(V3),
+            sd_size = sd(V3),
+            n_size = length(V3)) %>%
+  dcast(Kingdom+Phylum+Organism+`RefSoil ID`~id, value.var = "tot_size")
+
+(plas_v_genome <- ggplot(size.annotated, aes(x = log10(genome), y = log10(plasmid))) +
+  geom_smooth(method = "lm", color = "black") +
+  geom_point(shape = 1) +
+  ylab("log10(Total plasmid bp)") +
+  xlab("log10(Total genome bp)") +  
+  theme_bw())
+
+ggsave(plas_v_genome, filename = "figures/plasmid_v_genome.png", units = "in", width = 3.5, height = 3, dpi = 300)
+
+library(broom)
+tidy(cor.test(log10(size.annotated$genome), log10(size.annotated$plasmid)))
+
