@@ -450,7 +450,7 @@ plasmids") +
                                          size = 0.05, 
                                          linetype = "solid"), 
         axis.title.x = element_blank(), 
-        legend.title=element_text(size=10), 
+        legend.title=element_text(size=9), 
         legend.text=element_text(size=8),
         axis.text.x = element_blank()))
 
@@ -470,7 +470,7 @@ ggsave(plas_v_genome, filename = "figures/plasmid_v_genome.png", units = "in", w
                                            fill = "white",
                                            size = 0.05, 
                                            linetype = "solid"), 
-          legend.title=element_text(size=10), 
+          legend.title=element_text(size=9), 
           legend.text=element_text(size=8)))
 
 ggsave(plas.n_v_genome, filename = "figures/plasmid.number_v_genome.png", units = "in", width = 3.5, height = 3, dpi = 300)
@@ -485,7 +485,7 @@ ggsave(plas.n_v_genome, filename = "figures/plasmid.number_v_genome.png", units 
 plasmids") +
   scale_fill_manual(values = c("#B2DF8A", "#1F78B4", "#2007ff")) +
   theme_void() +
-  theme(legend.position = c(0.85, 0.6), legend.background = element_rect(color = "black", fill = "white", size = 0.05, linetype = "solid"), axis.title.x = element_blank(), legend.title=element_text(size=10), 
+  theme(legend.position = c(0.85, 0.6), legend.background = element_rect(color = "black", fill = "white", size = 0.05, linetype = "solid"), axis.title.x = element_blank(), legend.title=element_text(size=9), 
         legend.text=element_text(size=8)))
 
 library(ggpubr)
