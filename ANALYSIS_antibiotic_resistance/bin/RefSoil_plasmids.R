@@ -436,14 +436,14 @@ size.annotated <- size %>%
          plasmid_tot_size = ifelse(is.na(plasmid_tot_size), 0, plasmid_tot_size),
          plasmid_mean_size = ifelse(is.na(plasmid_mean_size), 0, plasmid_mean_size))
 
-(plas_v_genome <- ggplot(size.annotated, aes(x = genome_tot_size/1000, y = plasmid_tot_size/1000, fill = plasmid_n_size)) +
-    geom_point(alpha = 0.7, shape = 21, size = 3) +
-    ylab("Plasmid size (kbp)") +
-    xlab("Genome size (kbp)") +  
-    scale_fill_gradientn(colours = rainbow(15), breaks = c(2, 4, 6, 8, 10, 12, 14)) +
+(plas_v_genome <- ggplot(size.annotated, aes(x = genome_tot_size/1000, y = plasmid_tot_size/1000)) +
+    geom_point(alpha = 0.4, size = 2) +
+    ylab("Total plasmid size (kbp)") +
+    xlab("Total genome size (kbp)") +  
+    scale_y_log10() +
     labs(fill = "Number of
 plasmids") +
-    theme_bw(base_size = 10) +
+    theme_bw(base_size = 12) +
   theme(legend.position = c(0.85, 0.6), 
         legend.background = element_rect(color = "black", 
                                          fill = "white", 
@@ -457,14 +457,16 @@ plasmids") +
 ggsave(plas_v_genome, filename = "figures/plasmid_v_genome.png", units = "in", width = 3.5, height = 3, dpi = 300)
 
 
-(plas.n_v_genome <- ggplot(size.annotated, aes(x = genome_tot_size/1000, y = plasmid_n_size, size = plasmid_mean_size/1000)) +
-    geom_jitter(shape = 1,  height = 0.2, width = 0, alpha = 0.7) +
+(plas.n_v_genome <- ggplot(size.annotated, aes(x = genome_tot_size/1000, y = plasmid_n_size, size = plasmid_mean_size/1000, alpha = plasmid_mean_size/1000)) +
+    geom_jitter(height = 0.2, width = 0) +
     scale_fill_gradientn(colours = heat.colors(400)) +
     ylab("Number of plasmids") +
-    xlab("Genome size (kbp)") +
-    labs(size = "Plasmid size
-(kbp)") +
-    theme_bw(base_size = 10) +
+    xlab("Total genome size (kbp)") +
+    labs(size = "Mean plasmid
+size (kbp)", 
+         alpha = "Mean plasmid
+size (kbp)") +
+    theme_bw(base_size = 12) +
     theme(legend.position = c(0.85, 0.6), 
           legend.background = element_rect(color = "black", 
                                            fill = "white",
@@ -473,9 +475,10 @@ ggsave(plas_v_genome, filename = "figures/plasmid_v_genome.png", units = "in", w
           legend.title=element_text(size=9), 
           legend.text=element_text(size=8)))
 
+
 ggsave(plas.n_v_genome, filename = "figures/plasmid.number_v_genome.png", units = "in", width = 3.5, height = 3, dpi = 300)
 
-(density <- size.annotated %>%
+(density.genome <- size.annotated %>%
   mutate(plasmid.logical = ifelse(plasmid_n_size == 0, "None", ifelse(plasmid_n_size == 1, "One", "Multiple")),
          plasmid.logical = as.factor(plasmid.logical),
          plasmid.logical = fct_relevel(plasmid.logical, "None", "One", "Multiple")) %>%
@@ -488,10 +491,26 @@ plasmids") +
   theme(legend.position = c(0.85, 0.6), legend.background = element_rect(color = "black", fill = "white", size = 0.05, linetype = "solid"), axis.title.x = element_blank(), legend.title=element_text(size=9), 
         legend.text=element_text(size=8)))
 
+(density.plasmid <- size.annotated %>%
+    mutate(plasmid.logical = ifelse(plasmid_n_size == 0, "None", ifelse(plasmid_n_size == 1, "One", "Multiple")),
+           plasmid.logical = as.factor(plasmid.logical),
+           plasmid.logical = fct_relevel(plasmid.logical, "None", "One", "Multiple")) %>%
+    ggplot(aes(x = plasmid_tot_size/1000, fill = plasmid.logical)) +
+    geom_density(alpha = 0.6) +
+    labs(fill = "Number of
+plasmids") +
+    scale_x_log10() +
+    scale_fill_manual(values = c("#1F78B4", "#2007ff")) +
+    theme_void() +
+    coord_flip() +
+    theme(legend.position = "none",
+          axis.title.x = element_blank()))
+
 library(ggpubr)
-(Fig_S3 <- ggarrange(density, plas_v_genome, plas.n_v_genome, 
-          ncol = 1, nrow = 3,  align = "hv", heights = c(0.4, 0.95, 1)))
-ggsave(Fig_S3, filename = "figures/figure_s3.png", height = 9, width = 4, units = "in", dpi = 300)
+(Fig_S3 <- ggarrange(density.genome,NULL, plas_v_genome, density.plasmid, plas.n_v_genome, 
+          ncol = 2, nrow = 3,  align = "hv",
+          widths = c(2, 0.9), heights = c(0.9, 1.5, 1.5)))
+ggsave(Fig_S3, filename = "figures/figure_s3.png", height = 9, width = 6, units = "in", dpi = 300)
 
 #set up df for correlation stats
 size.stats <- size.annotated %>%
