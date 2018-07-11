@@ -220,6 +220,16 @@ data.tax.cast <- data.tax %>%
 #save plot
 ggsave(gene_location, filename = "figures/RefSoil_desc_location.eps", width = 5.5, height = 2.5, units = "in")
 
+#make tidy table for plasmid-only sequences
+plasmid_only <- data.tax.cast %>%
+  subset(Location == "Plasmid only") %>%
+  group_by(Gene) %>%
+  summarise(Number = sum(Number.genes)) %>%
+  mutate(Gene = as.factor(Gene)) %>%
+  arrange(-Number)
+
+#save tidy plasmid-only table
+write.table(plasmid_only, file = "output/plasmid_only_table.txt", quote = FALSE, row.names = FALSE, sep = "\t")
 
 #plot genes on different locations
 (phy_location <- ggplot(data.tax.cast, aes(x = Phylum, y = Number.genes, fill = Location)) +
