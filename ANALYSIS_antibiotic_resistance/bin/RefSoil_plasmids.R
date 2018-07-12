@@ -332,6 +332,7 @@ ggsave(plasmid.hist, filename = "figures/plasmid.hist.eps", units = "in", height
 
 #calculate mean plasmid number
 mean(refsoil.plasmids$plasmid)
+#1.006508
 median(refsoil.plasmids$plasmid)
 
 (number.dist <- refsoil.plasmids %>%
@@ -494,13 +495,29 @@ size (kbp)") +
           legend.title=element_text(size=9), 
           legend.text=element_text(size=8)))
 
-
 ggsave(plas.n_v_genome, filename = "figures/plasmid.number_v_genome.png", units = "in", width = 3.5, height = 3, dpi = 300)
 
-(density.genome <- size.annotated %>%
+(plas.n_v_genome_boxplot <- size.annotated %>%
+    group_by(plasmid_n_size) %>%
+    mutate(length = length(plasmid_n_size)) %>%
+    ggplot(aes(x = as.factor(plasmid_n_size), y = genome_tot_size/1000)) +
+    geom_boxplot() +
+    stat_summary(geom = 'text', aes(label = .$length), fun.y = max, vjust = -1, size = 3) +
+    ylab("Genome size (kbp)") +
+    xlab("Number of plasmids") +
+    ylim(0, 16000) +
+    stat_compare_means(method = "anova", label.x = 11) +
+    theme_bw(base_size = 12))
+
+
+
+#plasmid density
+density.data <- size.annotated %>%
   mutate(plasmid.logical = ifelse(plasmid_n_size == 0, "None", ifelse(plasmid_n_size == 1, "One", "Multiple")),
          plasmid.logical = as.factor(plasmid.logical),
-         plasmid.logical = fct_relevel(plasmid.logical, "None", "One", "Multiple")) %>%
+         plasmid.logical = fct_relevel(plasmid.logical, "None", "One", "Multiple")) 
+
+(density.genome <- density.data %>%
  ggplot(aes(x = genome_tot_size/1000, fill = plasmid.logical)) +
   geom_density(alpha = 0.6) +
   labs(fill = "Number of
@@ -510,10 +527,7 @@ plasmids") +
   theme(legend.position = c(0.85, 0.6), legend.background = element_rect(color = "black", fill = "white", size = 0.05, linetype = "solid"), axis.title.x = element_blank(), legend.title=element_text(size=9), 
         legend.text=element_text(size=8)))
 
-(density.plasmid <- size.annotated %>%
-    mutate(plasmid.logical = ifelse(plasmid_n_size == 0, "None", ifelse(plasmid_n_size == 1, "One", "Multiple")),
-           plasmid.logical = as.factor(plasmid.logical),
-           plasmid.logical = fct_relevel(plasmid.logical, "None", "One", "Multiple")) %>%
+(density.plasmid <- density.data %>%
     ggplot(aes(x = plasmid_tot_size/1000, fill = plasmid.logical)) +
     geom_density(alpha = 0.6) +
     labs(fill = "Number of
@@ -540,3 +554,17 @@ library(psych)
 corr.stats <- corr.test(size.stats)
 corr.stats.r <- corr.stats$r
 corr.stats.p <- corr.stats$p
+
+#test difference between genome size based on 
+#plasmid number groups
+library(broom)
+t.test <- density.data %>%
+  group_by(plasmid.logical) %>%
+  do(tidy(t.test(.$genome_tot_size)))
+  
+a <- aov(genome_tot_size ~ plasmid.logical, density.data)
+summary(a)
+
+ggplot(density.data, aes(x = plasmid.logical, y = genome_tot_size)) +
+  geom_boxplot() +
+  stat_compare_means(method = "anova", label.x = 2) 
