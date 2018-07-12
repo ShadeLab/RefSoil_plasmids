@@ -228,8 +228,17 @@ plasmid_only <- data.tax.cast %>%
   mutate(Gene = as.factor(Gene)) %>%
   arrange(-Number)
 
+#plot tidy plasmid-only table
+library(ggpubr)
+(plasmid_only_table <- ggtexttable(plasmid_only, 
+                                   rows = NULL, 
+                                   theme = ttheme(base_size = 8,
+                                   tbody.style = tbody_style(hjust = 0, x=0.1, fill = "white", size = 8),
+                                   colnames.style = colnames_style(color = "black", face = "bold", size = 9, linewidth = 1, linecolor = "white", fill = "white", hjust = 0, x = 0.1))))
+
 #save tidy plasmid-only table
-write.table(plasmid_only, file = "output/plasmid_only_table.txt", quote = FALSE, row.names = FALSE, sep = "\t")
+ggsave(plasmid_only_table, filename = "output/plasmid_only_table.png", width = 1.1, height = 5.2)
+
 
 #plot genes on different locations
 (phy_location <- ggplot(data.tax.cast, aes(x = Phylum, y = Number.genes, fill = Location)) +
@@ -527,6 +536,7 @@ size.stats <- size.annotated %>%
   select(genome_tot_size, plasmid_tot_size, genome_n_size, plasmid_n_size)
 
 #test correlations
+library(psych)
 corr.stats <- corr.test(size.stats)
 corr.stats.r <- corr.stats$r
 corr.stats.p <- corr.stats$p
