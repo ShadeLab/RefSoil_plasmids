@@ -1,0 +1,14 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+WP_048165421.1       -            251 Resfam_ANT9          -            260   5.5e-23   87.6   0.0   1   1   5.5e-29     7e-23   87.3   0.0     8   238     3   230     1   236 0.89 -
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/ANT9/originaldata/ANT9.hmm
+# Target file:     /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/protein_files/archaea.protein.fa
+# Option settings: /opt/software/HMMER/3.1b2--GCC-4.8.3/bin/hmmsearch -o /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/ANT9.archaea.protein.fa.stdout.txt -A /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/ANT9.archaea.protein.fa.alignment.0.0000000001.txt --domtblout /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/ANT9.archaea.protein.fa.0.0000000001.tbl.txt -E 0.0000000001 --cpu 8 /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/ANT9/originaldata/ANT9.hmm /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/protein_files/archaea.protein.fa 
+# Current dir:     /mnt/research/ShadeLab/Dunivin/hmmsearch/bin
+# Date:            Wed Jul 25 14:04:41 2018
+# [ok]

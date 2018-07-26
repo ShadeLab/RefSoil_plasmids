@@ -1,0 +1,30 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+WP_011977144.1       -            373 Resfam_vanT          -            693     1e-81  281.3   1.4   1   1   1.7e-86   1.3e-81  281.0   1.4   337   688     8   367     4   371 0.93 -
+WP_011867842.1       -            373 Resfam_vanT          -            693   4.3e-81  279.3   0.5   1   1   7.3e-86   5.4e-81  278.9   0.5   337   688     8   367     4   371 0.94 -
+WP_011972631.1       -            380 Resfam_vanT          -            693   9.7e-81  278.1   8.0   1   1   1.6e-85   1.2e-80  277.8   8.0   337   688     8   374     4   379 0.92 -
+WP_104838165.1       -            373 Resfam_vanT          -            693   1.6e-80  277.4   3.3   1   1   2.7e-85     2e-80  277.0   3.3   337   688     8   367     4   371 0.94 -
+WP_012193915.1       -            373 Resfam_vanT          -            693   4.1e-80  276.0   0.8   1   1     7e-85   5.2e-80  275.7   0.8   337   688     8   367     4   371 0.93 -
+WP_013999828.1       -            373 Resfam_vanT          -            693   5.8e-80  275.5   3.4   1   1     1e-84   7.4e-80  275.2   3.4   337   688     8   367     4   371 0.94 -
+WP_011171456.1       -            373 Resfam_vanT          -            693   1.6e-79  274.1   3.1   1   1   2.8e-84   2.1e-79  273.7   3.1   337   688     8   367     4   371 0.94 -
+WP_007702441.1       -            370 Resfam_vanT          -            693   8.7e-15   60.1   8.1   1   1   2.6e-19   1.9e-14   59.0   8.1     4   160     6   181     3   208 0.78 -
+WP_083860899.1       -            360 Resfam_vanT          -            693   5.9e-12   50.8  13.5   1   1     1e-16   7.6e-12   50.4  13.5    10   309     2   324     1   343 0.61 -
+WP_008004426.1       -            370 Resfam_vanT          -            693     6e-12   50.7   0.3   1   1   1.4e-16     1e-11   50.0   0.3     5   164     7   185     3   208 0.77 -
+WP_049928878.1       -            369 Resfam_vanT          -            693   8.3e-12   50.3  10.0   1   1   2.7e-16     2e-11   49.0  10.0     5   159     7   179     3   360 0.68 -
+WP_008849299.1       -            370 Resfam_vanT          -            693   1.2e-11   49.7   0.7   1   1   3.2e-16   2.4e-11   48.8   0.7     5   164     7   185     3   210 0.76 -
+WP_083873378.1       -            381 Resfam_vanT          -            693   1.4e-11   49.6  14.8   1   1   3.2e-16   2.4e-11   48.8  14.8     4   306     6   331     3   363 0.61 -
+WP_101298289.1       -            377 Resfam_vanT          -            693   1.6e-11   49.3  14.4   1   1     3e-16   2.2e-11   48.9  14.4     4   233     6   235     3   307 0.79 -
+WP_084383904.1       -            369 Resfam_vanT          -            693   1.6e-11   49.3  14.2   1   1   2.8e-16   2.1e-11   49.0  13.6     5   200     7   208     4   307 0.71 -
+WP_012943009.1       -            371 Resfam_vanT          -            693     6e-11   47.4  11.0   1   1   1.2e-15   9.1e-11   46.8  11.0     5   214     7   222     3   276 0.74 -
+WP_083867285.1       -            371 Resfam_vanT          -            693   8.5e-11   46.9  12.8   1   1   1.7e-15   1.3e-10   46.4  12.8    10   235     2   235     1   351 0.59 -
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/vanT/originaldata/vanT.hmm
+# Target file:     /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/protein_files/archaea.protein.fa
+# Option settings: /opt/software/HMMER/3.1b2--GCC-4.8.3/bin/hmmsearch -o /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/vanT.archaea.protein.fa.stdout.txt -A /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/vanT.archaea.protein.fa.alignment.0.0000000001.txt --domtblout /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/vanT.archaea.protein.fa.0.0000000001.tbl.txt -E 0.0000000001 --cpu 8 /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/vanT/originaldata/vanT.hmm /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/protein_files/archaea.protein.fa 
+# Current dir:     /mnt/research/ShadeLab/Dunivin/hmmsearch/bin
+# Date:            Wed Jul 25 14:06:17 2018
+# [ok]

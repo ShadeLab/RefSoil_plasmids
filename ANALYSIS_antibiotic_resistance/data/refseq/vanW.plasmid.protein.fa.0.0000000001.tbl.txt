@@ -1,0 +1,24 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+WP_010815683.1       -            275 Resfam_vanW          -            274  3.6e-166  557.1   0.1   1   1  4.6e-171    4e-166  557.0   0.1     1   274     1   275     1   275 1.00 -
+YP_002333393.1       -            275 Resfam_vanW          -            274  3.6e-166  557.1   0.1   1   1  4.6e-171    4e-166  557.0   0.1     1   274     1   275     1   275 1.00 -
+WP_032489744.1       -            275 Resfam_vanW          -            274  1.1e-165  555.6   0.0   1   1  1.3e-170  1.2e-165  555.5   0.0     1   274     1   275     1   275 1.00 -
+WP_002191572.1       -            277 Resfam_vanW          -            274   5.5e-48  169.5   0.3   1   1   7.4e-53   6.5e-48  169.3   0.3     8   206    10   208     5   263 0.91 -
+WP_012259825.1       -            277 Resfam_vanW          -            274   1.5e-47  168.1   0.3   1   1     2e-52   1.7e-47  167.9   0.3     8   206    10   208     5   263 0.91 -
+WP_016359388.1       -            300 Resfam_vanW          -            274   7.2e-46  162.6   0.0   1   1     1e-50   8.8e-46  162.3   0.0    23   262    29   270     7   273 0.92 -
+YP_007988703.1       -            300 Resfam_vanW          -            274   7.2e-46  162.6   0.0   1   1     1e-50   8.8e-46  162.3   0.0    23   262    29   270     7   273 0.92 -
+WP_017762614.1       -            432 Resfam_vanW          -            274   3.6e-18   71.7   1.4   1   1   9.9e-23   8.7e-18   70.5   1.4    69   251   251   427   242   432 0.89 -
+WP_061139980.1       -            432 Resfam_vanW          -            274   4.3e-18   71.5   1.4   1   2      0.82   7.2e+04   -1.4   0.6    21    87   138   207   131   235 0.62 -
+WP_061139980.1       -            432 Resfam_vanW          -            274   4.3e-18   71.5   1.4   2   2   4.9e-23   4.3e-18   71.5   1.4    69   253   251   429   240   432 0.90 -
+WP_060852732.1       -            429 Resfam_vanW          -            274   6.2e-16   64.4   0.5   1   1   1.4e-20   1.2e-15   63.5   0.5    69   220   250   395   236   421 0.84 -
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/vanW/originaldata/vanW.hmm
+# Target file:     /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/protein_files/plasmid.protein.fa
+# Option settings: /opt/software/HMMER/3.1b2--GCC-4.8.3/bin/hmmsearch -o /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/vanW.plasmid.protein.fa.stdout.txt -A /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/vanW.plasmid.protein.fa.alignment.0.0000000001.txt --domtblout /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/vanW.plasmid.protein.fa.0.0000000001.tbl.txt -E 0.0000000001 --cpu 8 /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/vanW/originaldata/vanW.hmm /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/protein_files/plasmid.protein.fa 
+# Current dir:     /mnt/research/ShadeLab/Dunivin/hmmsearch/bin
+# Date:            Wed Jul 25 14:08:11 2018
+# [ok]

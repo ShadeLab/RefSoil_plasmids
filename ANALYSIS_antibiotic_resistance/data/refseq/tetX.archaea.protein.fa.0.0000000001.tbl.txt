@@ -1,0 +1,17 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+WP_066143269.1       -            404 Resfam_TetX          -            398   4.7e-11   48.1   0.0   1   2   4.3e-13   2.7e-07   35.7   0.0    27   188    17   180    10   198 0.85 -
+WP_066143269.1       -            404 Resfam_TetX          -            398   4.7e-11   48.1   0.0   2   2   2.2e-05        14   10.3   0.0   316   367   296   345   287   361 0.89 -
+WP_049964914.1       -            400 Resfam_TetX          -            398   5.4e-11   47.9   0.0   1   2   2.7e-10   0.00017   26.5   0.0    27   194     8   176     2   202 0.83 -
+WP_049964914.1       -            400 Resfam_TetX          -            398   5.4e-11   47.9   0.0   2   2   4.1e-08     0.026   19.3   0.0   316   350   285   319   269   334 0.88 -
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/tetX/originaldata/tetX.hmm
+# Target file:     /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/protein_files/archaea.protein.fa
+# Option settings: /opt/software/HMMER/3.1b2--GCC-4.8.3/bin/hmmsearch -o /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/tetX.archaea.protein.fa.stdout.txt -A /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/tetX.archaea.protein.fa.alignment.0.0000000001.txt --domtblout /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/tetX.archaea.protein.fa.0.0000000001.tbl.txt -E 0.0000000001 --cpu 8 /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/tetX/originaldata/tetX.hmm /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/protein_files/archaea.protein.fa 
+# Current dir:     /mnt/research/ShadeLab/Dunivin/hmmsearch/bin
+# Date:            Wed Jul 25 14:05:57 2018
+# [ok]
