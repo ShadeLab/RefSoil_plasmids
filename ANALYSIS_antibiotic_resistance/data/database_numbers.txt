@@ -1,0 +1,5 @@
+database	Sample	Number
+RefSeq	Genome	52040
+RefSeq	Plasmid	13428
+RefSoil	Genome	922
+RefSoil	Plasmid	928

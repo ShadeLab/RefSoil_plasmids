@@ -1,0 +1,36 @@
+#!/bin/bash -login
+ 
+### define resources needed:
+### walltime - how long you expect the job to run
+#PBS -l walltime=04:00:00
+ 
+### nodes:ppn - how many nodes & cores per node (ppn) that you require
+#PBS -l nodes=1:ppn=8
+ 
+### mem: amount of memory that the job will need
+#PBS -l mem=550gb
+ 
+### you can give your job a name for easier identification
+#PBS -N refseq_plasmid
+ 
+### change to the working directory where your code is located
+cd /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/genbank
+
+#then read into R and get list of final accession numbers (prokaryotic, complete only)
+#file == refseq.plasmid.txt
+module load python
+python /mnt/research/ShadeLab/Dunivin/hmmsearch/refsoil_tree/ref_soil/script_download_refsoil/fetch_genbank.py /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/genbank/refseq.plasmid.txt refseq_plasmid_genbank
+python /mnt/research/ShadeLab/Dunivin/hmmsearch/refsoil_tree/ref_soil/script_download_refsoil/fetch_fasta_protein.py /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/genbank/refseq.plasmid.txt refseq_plasmid_protein_fasta
+
+#concatenate files
+cat refseq_plasmid_protein_fasta/* > refseq_plasmid_protein.fasta
+
+#tidy names
+awk '/^>/{print $1;next}{print}' refseq_plasmid_protein.fasta > cleaned_refseq_plasmid_protein.fasta
+sed -i 's/lcl|//g' cleaned_refseq_plasmid_protein.fasta
+sed -i 's/_prot_/ from /g' cleaned_refseq_plasmid_protein.fasta
+sed -i 's/>/> /g' cleaned_refseq_plasmid_protein.fasta
+awk '/^>/{print ">" $4 " from " $2;next}{print}' cleaned_refseq_plasmid_protein.fasta > plasmid.protein.fa
+
+#linearize fasta
+awk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}' < plasmid.protein.long.fa > plasmid.protein.fa
