@@ -125,5 +125,5 @@ WP_008425887.1       -            177 dfra1                -            157   9.
 # Target file:     /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/protein_files/archaea.protein.fa
 # Option settings: /opt/software/HMMER/3.1b2--GCC-4.8.3/bin/hmmsearch -o /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/dfra1.archaea.protein.fa.stdout.txt -A /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/dfra1.archaea.protein.fa.alignment.0.0000000001.txt --domtblout /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/dfra1.archaea.protein.fa.0.0000000001.tbl.txt -E 0.0000000001 --cpu 8 /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/dfra1/originaldata/dfra1.hmm /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/protein_files/archaea.protein.fa 
 # Current dir:     /mnt/research/ShadeLab/Dunivin/hmmsearch/bin
-# Date:            Wed Jul 25 14:06:00 2018
+# Date:            Wed Jul 25 17:21:44 2018
 # [ok]

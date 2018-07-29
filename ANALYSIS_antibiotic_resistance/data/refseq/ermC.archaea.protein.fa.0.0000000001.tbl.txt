@@ -215,5 +215,5 @@ WP_049970879.1       -            294 Resfam_ErmC          -            244   9.
 # Target file:     /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/protein_files/archaea.protein.fa
 # Option settings: /opt/software/HMMER/3.1b2--GCC-4.8.3/bin/hmmsearch -o /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/ermC.archaea.protein.fa.stdout.txt -A /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/ermC.archaea.protein.fa.alignment.0.0000000001.txt --domtblout /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/ermC.archaea.protein.fa.0.0000000001.tbl.txt -E 0.0000000001 --cpu 8 /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/ermC/originaldata/ermC.hmm /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/protein_files/archaea.protein.fa 
 # Current dir:     /mnt/research/ShadeLab/Dunivin/hmmsearch/bin
-# Date:            Wed Jul 25 14:05:08 2018
+# Date:            Wed Jul 25 17:21:05 2018
 # [ok]

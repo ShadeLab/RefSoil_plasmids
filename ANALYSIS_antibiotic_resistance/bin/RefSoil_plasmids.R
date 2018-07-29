@@ -24,16 +24,19 @@ data <- do.call(rbind, lapply(names, function(X) {
   data.frame(id = basename(X), database = "RefSoil", read.table(X))}))
 
 #get data for full refseq
-setwd("refseq")
-refseq.names=list.files(pattern="*.tbl.txt")
-refseq <- do.call(rbind, lapply(refseq.names, function(X) {
-  data.frame(id = basename(X), database = "RefSeq", read.table(X), V24 = NA)}))
+setwd("refseq/plasmid")
+refseq.plasmid.names=list.files(pattern="*.tbl.txt")
+refseq.plasmid <- do.call(rbind, lapply(refseq.plasmid.names, function(X) {data.frame(id = basename(X), database = "RefSeq", read.table(X))}))
+
+setwd("../")
+refseq.genome.names=list.files(pattern="*.tbl.txt")
+refseq.genome <- do.call(rbind, lapply(refseq.genome.names, function(X) {data.frame(id = basename(X), database = "RefSeq", read.table(X), V24 = NA)}))
 
 #fix working directory
 setwd(wd)
 
 #join datasets together
-data <- rbind(data, refseq)
+data <- rbind(data, refseq.genome, refseq.plasmid)
 data <- data %>%
   mutate(id = gsub(".0.0000000001.tbl.txt", "", id)) %>%
   separate(col = id, into = c("Gene", "Sample"), sep = "[.]", extra = "merge") %>%
@@ -96,7 +99,7 @@ data.quality.f <- data.quality.f[-which(data.quality.f$Gene == "vanW" & data.qua
 #examine if any HMM hits apply to two genes 
 #on the same organism
 duplicates <- data.quality.f[duplicated(data.quality.f[,c(4,23)]),]
-#5104 duplicates detected
+#3397 duplicates detected
 #many duplicates because RefSeq accessions include plasmids
 #must remove missannotated genome-version and keep plasmid
 
@@ -316,6 +319,14 @@ ggsave(figure_s2, filename = "figures/figure_s2.eps", width = 6, height = 4, uni
 #######################################
 #COMPARE REFSOIL ARGS WITH REFSEQ ARGS#
 #######################################
+#RefSeq release 89
+#nplasmid refsoil = 10406
+#nplasmid refseq = 4706
+#norg refsoil = 922
+#norg refseq = 50971 bacteria + 1069 archaea = 52040
+#read in numbers
+db.numbers <- read_delim("data/database_numbers.txt", delim = "\t", col_names = TRUE)
+
 #tidy data for comparison
 data.full <- rbind(data.quality.f.seq, data.quality.f.soil)
 data.full.tidy <- data.full %>%
@@ -329,15 +340,6 @@ data.full.tidy <- data.full %>%
   mutate(p.ARG = ARG/Number) 
 
 #plot number of ARG/plasmid in RefSoil v RefSeq
-#RefSeq release 89
-#nplasmid refsoil = 928
-#nplasmid refseq = 13428
-#norg refsoil = 922
-#norg refseq = 50971 bacteria + 1069 archaea = 52040
-#read in numbers
-db.numbers <- read_delim("data/database_numbers.txt", delim = "\t", col_names = TRUE)
-
-#plot proportions
 (refcomp <- data.full.tidy %>%
     ggplot(aes(x = database, fill = Sample, y = p.ARG)) +
   geom_bar(color = "grey20", position = "stack", stat = "identity") +
@@ -346,10 +348,10 @@ db.numbers <- read_delim("data/database_numbers.txt", delim = "\t", col_names = 
     ylab("Proportion") +
     xlab("Database") +
     labs(fill = "Genetic elements") +
-    theme_bw() +
-    theme(legend.position = "top"))
+    theme_bw(base_size = 9) +
+    theme(legend.position = "top", axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)))
 
-ggsave(refcomp, filename = "figures/refsoil_refseq.eps", units = "in", width = 6, height = 4)
+ggsave(refcomp, filename = "figures/refsoil_refseq.eps", units = "in", width = 6, height = 5)
 
 
 (refcomp.plas <- data.full.tidy %>%
@@ -366,14 +368,16 @@ ggsave(refcomp, filename = "figures/refsoil_refseq.eps", units = "in", width = 6
                 color = "black", 
                 size = 2,
                 shape = 21,
-                width = 0.2) +
+                width = 0.2,
+                alpha = 0.7) +
     scale_fill_brewer(palette = "Set3") +
-    facet_wrap(~Sample, scales = "free_y") +
+    facet_wrap(~Sample, scales = "free_y", ncol = 1) +
     ylab("ARGs per element") +
     xlab("Database") +
-    stat_compare_means(method = "wilcox.test", paired = FALSE, label.y.npc = "top", label.x.npc = "left") +
-    theme_bw(base_size = 10))
+    theme_bw(base_size = 9) +
+    stat_compare_means(method = "wilcox.test", paired = FALSE, label.y.npc = "top", label.x.npc = "center", label = "p.format", inherit.aes = TRUE))
 
+ggsave(refcomp.plas, filename = "figures/refsoil_refseq_boxplot.png", units = "in", width = 4, height = 4, dpi = 300)
 
 #######################################
 #ANALYZE REFSOIL GENOME/PLASMID MAKEUP#
@@ -494,17 +498,20 @@ size.p <- size %>%
     xlab("Plasmid size (Kbps)") +
     theme_classic(base_size = 10))
 
-(size.plasmid.refseq <- ggplot(refseq.size, aes(x = V3/1000)) +
-    geom_histogram(bins = 30, fill = "#1F78B4") +
-    scale_x_log10(breaks = c(1,5,10,35,100,1000)) +
-    ylab("Number of plasmids") +
-    xlab("Plasmid size (Kbps)") +
-    theme_classic(base_size = 10))
-
-
 #plot and save figure 1
 (figure_1 <- ggarrange(refsoil.plasmid, plasmid.hist, refsoil.bp.plasmid, size.plasmid, labels = c("A", "B", "C", "D"), widths = c(0.7, 1)))
 ggsave(figure_1, filename = "figures/figure_1.eps", height = 4.5, width = 5.5, units = "in")
+
+#plot size distribution between refsoil and refseq
+(size.plasmid.refseq <- ggplot() +
+    geom_density(data = refseq.size, aes(x = V3/1000, fill = "RefSeq"), alpha = 0.75) +
+    geom_density(data = size.p, aes(x = V3/1000, fill = "RefSoil"), alpha = 0.75) +
+    scale_x_log10(breaks = c(1,5,10,35,100,1000)) +
+    scale_fill_manual(name="Database", values=c(RefSeq ="grey", RefSoil="#1F78B4")) +
+    ylab("Density") +
+    xlab("Plasmid size (kbp)") +
+    theme_classic(base_size = 10))
+ggsave(size.plasmid.refseq, filename = "figures/size_comparison.png", height = 2.5, width = 4, units = "in", dpi = 300)
 
 #############################
 #PLASMID SIZE VS GENOME SIZE#
