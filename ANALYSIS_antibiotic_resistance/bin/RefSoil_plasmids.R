@@ -256,11 +256,20 @@ data.tax.cast <- data.tax %>%
     ylab("Number of genes") +
     labs(fill = "Genetic elements") +
     coord_flip() +
+    theme_bw(base_size = 10))
+
+(gene_location.prop <- ggplot(data.tax.cast, aes(x = Description, y = Number.genes, fill = Location)) +
+    geom_bar(stat = "identity", color = NA, position = "fill") +
+    scale_fill_brewer(palette = "Paired") +
+    ylab("Proportion") +
+    xlab("") +
+    coord_flip() +
     theme_bw(base_size = 10) +
-    theme(legend.position = c(0.4, 0.2), legend.justification =c(0.1, 0.2), legend.background = element_rect(colour = "black", fill = "white")))
+    theme(axis.text.y = element_blank()))
 
 #save plot
-ggsave(gene_location, filename = "figures/RefSoil_desc_location.png", width = 4, height = 2.5, units = "in", dpi = 300)
+(figure_3 <- ggarrange(gene_location, gene_location.prop, labels = c("A", "B"), common.legend = TRUE, widths = c(1, 0.75)))
+ggsave(figure_3, filename = "figures/Figure_3.png", width = 6, height = 3, units = "in", dpi = 300)
 
 #make tidy table for plasmid-only sequences
 plasmid_only <- data.tax.cast %>%
@@ -342,7 +351,7 @@ data.full.tidy <- data.full %>%
 #plot number of ARG/plasmid in RefSoil v RefSeq
 (refcomp <- data.full.tidy %>%
     ggplot(aes(x = database, fill = Sample, y = p.ARG)) +
-  geom_bar(color = "grey20", position = "stack", stat = "identity") +
+  geom_bar(color = "grey20", position = "fill", stat = "identity") +
   scale_fill_manual(values = c("#B2DF8A", "#1F78B4")) +
   facet_wrap(~Gene, scales = "free_y") +
     ylab("Proportion") +
@@ -436,6 +445,10 @@ refsoil.plasmids <- ncbi.tidy %>%
     ylab("RefSoil organisms") +
     xlab("Plasmid number"))
 
+#plot and save figure 1
+(figure_1 <- ggarrange(refsoil.plasmid, plasmid.hist, labels = c("A", "B"), widths = c(0.7, 1)))
+ggsave(figure_1, filename = "figures/figure_1.eps", height = 2.5, width = 5.5, units = "in")
+
 #calculate mean plasmid number
 mean(refsoil.plasmids$plasmid)
 #1.006508
@@ -499,10 +512,6 @@ size.p <- size %>%
     xlab("Plasmid size (kbp)") +
     theme_classic(base_size = 10))
 
-#plot and save figure 1
-(figure_1 <- ggarrange(refsoil.plasmid, plasmid.hist, refsoil.bp.plasmid, size.plasmid, labels = c("A", "B", "C", "D"), widths = c(0.7, 1)))
-ggsave(figure_1, filename = "figures/figure_1.eps", height = 4.5, width = 5.5, units = "in")
-
 #plot size distribution between refsoil and refseq
 (size.plasmid.refseq <- ggplot() +
     geom_density(data = refseq.size, aes(x = V3/1000, fill = "RefSeq"), alpha = 0.75) +
@@ -510,9 +519,12 @@ ggsave(figure_1, filename = "figures/figure_1.eps", height = 4.5, width = 5.5, u
     scale_x_log10(breaks = c(1,5,10,35,100,1000)) +
     scale_fill_manual(name="Database", values=c(RefSeq ="grey", RefSoil="#1F78B4")) +
     ylab("Density") +
-    xlab("Plasmid size (kbp)") +
+    xlab("") +
     theme_classic(base_size = 10))
 ggsave(size.plasmid.refseq, filename = "figures/size_comparison.png", height = 2.5, width = 4, units = "in", dpi = 300)
+#plot and save figure 2
+(figure_2 <- ggarrange(size.plasmid, size.plasmid.refseq, labels = c("A", "B"), widths = c(1, 1), common.legend = TRUE))
+ggsave(figure_2, filename = "figures/figure_2.png", height = 2.5, width = 5.5, units = "in", dpi = 300)
 
 #test for difference 
 wilcox.test(refseq.size$V3, size.p$V3, paired = FALSE)
