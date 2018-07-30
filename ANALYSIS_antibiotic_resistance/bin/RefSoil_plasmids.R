@@ -363,7 +363,7 @@ ggsave(refcomp, filename = "figures/refsoil_refseq.eps", units = "in", width = 6
     left_join(classification, by = "Gene") %>%
     unique() %>%
     ggplot(aes(x = database, y = value)) +
-    geom_boxplot(color = "grey20") +
+    geom_boxplot(color = "grey20", outlier.alpha = 0) +
     geom_jitter(aes(fill = Description),
                 color = "black", 
                 size = 2,
@@ -375,7 +375,8 @@ ggsave(refcomp, filename = "figures/refsoil_refseq.eps", units = "in", width = 6
     ylab("ARGs per element") +
     xlab("Database") +
     theme_bw(base_size = 9) +
-    stat_compare_means(method = "wilcox.test", paired = FALSE, label.y.npc = "top", label.x.npc = "center", label = "p.format", inherit.aes = TRUE))
+    theme(strip.background = element_rect(fill = "white")) +
+    stat_compare_means(method = "wilcox.test", paired = FALSE, label.y.npc = "top", label.x.npc = "middle", label = "p.format", inherit.aes = TRUE))
 
 ggsave(refcomp.plas, filename = "figures/refsoil_refseq_boxplot.png", units = "in", width = 4, height = 4, dpi = 300)
 
@@ -495,7 +496,7 @@ size.p <- size %>%
     geom_histogram(bins = 30, fill = "#1F78B4") +
     scale_x_log10(breaks = c(1,5,10,35,100,1000)) +
     ylab("Number of plasmids") +
-    xlab("Plasmid size (Kbps)") +
+    xlab("Plasmid size (kbp)") +
     theme_classic(base_size = 10))
 
 #plot and save figure 1
@@ -512,6 +513,9 @@ ggsave(figure_1, filename = "figures/figure_1.eps", height = 4.5, width = 5.5, u
     xlab("Plasmid size (kbp)") +
     theme_classic(base_size = 10))
 ggsave(size.plasmid.refseq, filename = "figures/size_comparison.png", height = 2.5, width = 4, units = "in", dpi = 300)
+
+#test for difference 
+wilcox.test(refseq.size$V3, size.p$V3, paired = FALSE)
 
 #############################
 #PLASMID SIZE VS GENOME SIZE#
