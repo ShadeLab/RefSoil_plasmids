@@ -14,23 +14,34 @@
 #PBS -N refseq_plasmid
  
 ### change to the working directory where your code is located
-cd /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/genbank
+cd /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/accnos
 
-#then read into R and get list of final accession numbers (prokaryotic, complete only)
-#file == refseq.plasmid.txt
+# using accession numbers, pull protein sequences from NCBI
 module load python
-python /mnt/research/ShadeLab/Dunivin/hmmsearch/refsoil_tree/ref_soil/script_download_refsoil/fetch_genbank.py /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/genbank/refseq.plasmid.txt refseq_plasmid_genbank
-python /mnt/research/ShadeLab/Dunivin/hmmsearch/refsoil_tree/ref_soil/script_download_refsoil/fetch_fasta_protein.py /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/genbank/refseq.plasmid.txt refseq_plasmid_protein_fasta
+
+#pull plasmid protein
+python /mnt/research/ShadeLab/Dunivin/hmmsearch/refsoil_tree/ref_soil/script_download_refsoil/fetch_fasta_protein.py /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/genbank/refseq_plasmid.txt refseq_plasmid_protein_fasta
+
+#pull chromosome protein
+python /mnt/research/ShadeLab/Dunivin/hmmsearch/refsoil_tree/ref_soil/script_download_refsoil/fetch_fasta_protein.py /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/genbank/refseq_chromosomes.txt refseq_chromosome_protein_fasta
 
 #concatenate files
-cat refseq_plasmid_protein_fasta/* > refseq_plasmid_protein.fasta
+cat refseq_plasmid_protein_fasta/* > refseq_plasmid_protein_fasta.fasta
+cat refseq_chromosome_protein_fasta/* > refseq_chromosome_protein_fasta.fasta
 
-#tidy names
-awk '/^>/{print $1;next}{print}' refseq_plasmid_protein.fasta > cleaned_refseq_plasmid_protein.fasta
+#tidy names of plasmids & linearize
+awk '/^>/{print $1;next}{print}' refseq_plasmid_protein_fasta.fasta > cleaned_refseq_plasmid_protein.fasta
 sed -i 's/lcl|//g' cleaned_refseq_plasmid_protein.fasta
 sed -i 's/_prot_/ from /g' cleaned_refseq_plasmid_protein.fasta
 sed -i 's/>/> /g' cleaned_refseq_plasmid_protein.fasta
-awk '/^>/{print ">" $4 " from " $2;next}{print}' cleaned_refseq_plasmid_protein.fasta > plasmid.protein.fa
-
-#linearize fasta
+awk '/^>/{print ">" $4 " from " $2;next}{print}' cleaned_refseq_plasmid_protein.fasta > plasmid.protein.long.fa
 awk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}' < plasmid.protein.long.fa > plasmid.protein.fa
+
+#tidy names of chromosomes & linearize
+awk '/^>/{print $1;next}{print}' refseq_chromosome_protein_fasta.fasta > cleaned_refseq_chromosome_protein.fasta
+sed -i 's/lcl|//g' cleaned_refseq_chromosome_protein
+sed -i 's/_prot_/ from /g' cleaned_refseq_chromosome_protein
+sed -i 's/>/> /g' cleaned_refseq_chromosome_protein
+awk '/^>/{print ">" $4 " from " $2;next}{print}' cleaned_refseq_chromosome_protein.fasta > chromosome.protein.long.fa
+awk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}' < plasmid.protein.long.fa > plasmid.protein.fa
+

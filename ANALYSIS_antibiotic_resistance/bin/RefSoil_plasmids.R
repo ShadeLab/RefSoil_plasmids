@@ -192,6 +192,8 @@ ncbi.tidy <- ncbi %>%
 #remove all rows where value = NA
 ncbi.tidy <- ncbi.tidy[!is.na(ncbi.tidy$NCBI.ID),]
 
+#save ncbi table
+write.table(ncbi.tidy, file = "output/refsoil_metadata_long.csv", sep = ",", col.names = TRUE, row.names = FALSE, quote = FALSE)
 ##################################
 #ANALYZE ARG LOCATION for REFSOIL#
 ##################################
@@ -255,21 +257,22 @@ data.tax.cast <- data.tax %>%
     scale_fill_brewer(palette = "Paired") +
     ylab("Number of genes") +
     labs(fill = "Genetic elements") +
-    coord_flip() +
-    theme_bw(base_size = 10))
+    #coord_flip() +
+    theme_bw(base_size = 10) +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 1)))
 
 (gene_location.prop <- ggplot(data.tax.cast, aes(x = Description, y = Number.genes, fill = Location)) +
     geom_bar(stat = "identity", color = NA, position = "fill") +
     scale_fill_brewer(palette = "Paired") +
     ylab("Proportion") +
     xlab("") +
-    coord_flip() +
+    #coord_flip() +
     theme_bw(base_size = 10) +
-    theme(axis.text.y = element_blank()))
+    theme(axis.text.x = element_blank()))
 
 #save plot
-(figure_3 <- ggarrange(gene_location, gene_location.prop, labels = c("A", "B"), common.legend = TRUE, widths = c(1, 0.75)))
-ggsave(figure_3, filename = "figures/Figure_3.png", width = 6, height = 3, units = "in", dpi = 300)
+(figure_4 <- ggarrange(gene_location.prop, NULL, gene_location, NULL, labels = c("A","C", "B"), common.legend = TRUE, widths = c(1, 0.5), heights = c(0.75, 1, 0, 1)))
+ggsave(figure_4, filename = "figures/Figure_4.png", width = 4, height = 6, units = "in", dpi = 300)
 
 #make tidy table for plasmid-only sequences
 plasmid_only <- data.tax.cast %>%
@@ -346,14 +349,15 @@ data.full.tidy <- data.full %>%
   group_by(database, Sample, Description, Gene) %>%
   summarise(ARG = length(Gene)) %>%
   left_join(db.numbers, by = c("database", "Sample")) %>%
+  ungroup() %>%
   mutate(p.ARG = ARG/Number) 
 
 #plot number of ARG/plasmid in RefSoil v RefSeq
 (refcomp <- data.full.tidy %>%
-    ggplot(aes(x = database, fill = Sample, y = p.ARG)) +
-  geom_bar(color = "grey20", position = "fill", stat = "identity") +
+  ggplot(aes(x = database, fill = Sample, y = p.ARG*100)) +
+  geom_bar(color = "grey20", position = "stack", stat = "identity") +
   scale_fill_manual(values = c("#B2DF8A", "#1F78B4")) +
-  facet_wrap(~Gene, scales = "free_y") +
+  facet_wrap(~Gene, scales = "free_y", shrink = TRUE) +
     ylab("Proportion") +
     xlab("Database") +
     labs(fill = "Genetic elements") +
@@ -361,7 +365,6 @@ data.full.tidy <- data.full %>%
     theme(legend.position = "top", axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)))
 
 ggsave(refcomp, filename = "figures/refsoil_refseq.eps", units = "in", width = 6, height = 5)
-
 
 (refcomp.plas <- data.full.tidy %>%
     ungroup() %>%
@@ -614,8 +617,7 @@ density.data <- size.annotated %>%
     scale_fill_manual(values = c("#1F78B4", "#2007ff")) +
     theme_void() +
     coord_flip() +
-    theme(legend.position = "none",
-          axis.title.x = element_blank()))
+    theme(legend.position = "none", axis.title.x = element_blank()))
 
 library(ggpubr)
 (Fig_S3 <- ggarrange(density.genome, NULL, plas_v_genome, density.plasmid, common.legend = TRUE, ncol = 2, nrow = 2, align = "hv", heights = c(0.5, 1), widths = c(1, 0.5)))

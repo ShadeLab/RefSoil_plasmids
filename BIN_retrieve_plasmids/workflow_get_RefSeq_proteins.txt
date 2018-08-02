@@ -1,0 +1,60 @@
+#download refseq summaries for bacteria and archaea
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria/assembly_summary.txt 
+mv assembly_summary.txt bacteria_summary.txt
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/refseq/archaea/assembly_summary.txt > archaea_summary.txt
+mv assembly_summary.txt archaea_summary.txt
+
+#extract completed genomes from summary
+awk -F "\t" '$12=="Complete Genome" && $11=="latest"{print $20}' bacteria_summary.txt > bact_ftpdirpaths
+awk -F "\t" '$12=="Complete Genome" && $11=="latest"{print $20}' archaea_summary.txt > arch_ftpdirpaths
+  
+#append file name to get genbank files
+awk 'BEGIN{FS=OFS="/";filesuffix="genomic.gbff.gz"}{ftpdir=$0;asm=$10;file=asm"_"filesuffix;print ftpdir,file}' bact_ftpdirpaths > bact_ftpdirpaths_genbank
+awk 'BEGIN{FS=OFS="/";filesuffix="genomic.gbff.gz"}{ftpdir=$0;asm=$10;file=asm"_"filesuffix;print ftpdir,file}' arch_ftpdirpaths > arch_ftpdirpaths_genbank
+
+#pull genbank files from ncbi
+#these will be used to 
+for word in $(cat arch_ftpdirpaths_genbank); do wget $word; done
+for word in $(cat bact_ftpdirpaths_genbank); do wget $word; done
+
+#unzip all genbank files
+gunzip *.gz
+
+#grab GenBank information for extraction in R
+grep -A1 -e '^LOCUS' -e '^DEFINITION' *gbff > organism_identifier_refseq_tab.txt
+
+#filter data (organism_identifier_refseq_tab.txt) in R based on a few factors
+# 1. Is it a plasmid or a chromosome?
+# 2. Is it redundant with RefSoil?
+# use R script refseq_ids_export.R for this step
+# final outputs == refseq_plasmid.txt and refseq_chromosomes.txt
+
+# using accession numbers, pull protein sequences from NCBI
+module load python
+
+#pull plasmid protein
+python /mnt/research/ShadeLab/Dunivin/hmmsearch/refsoil_tree/ref_soil/script_download_refsoil/fetch_fasta_protein.py /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/genbank/refseq_plasmid.txt refseq_plasmid_protein_fasta
+
+#pull chromosome protein
+python /mnt/research/ShadeLab/Dunivin/hmmsearch/refsoil_tree/ref_soil/script_download_refsoil/fetch_fasta_protein.py /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/genbank/refseq_chromosomes.txt refseq_chromosome_protein_fasta
+
+#concatenate files
+cat refseq_plasmid_protein_fasta/* > refseq_plasmid_protein.fasta
+cat refseq_chromosome_protein_fasta/* > refseq_chromosome_protein_fasta.fasta
+
+#tidy names of plasmids & linearize
+awk '/^>/{print $1;next}{print}' refseq_plasmid_protein.fasta > cleaned_refseq_plasmid_protein.fasta
+sed -i 's/lcl|//g' cleaned_refseq_plasmid_protein.fasta
+sed -i 's/_prot_/ from /g' cleaned_refseq_plasmid_protein.fasta
+sed -i 's/>/> /g' cleaned_refseq_plasmid_protein.fasta
+awk '/^>/{print ">" $4 " from " $2;next}{print}' cleaned_refseq_plasmid_protein.fasta > plasmid.protein.long.fa
+awk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}' < plasmid.protein.long.fa > plasmid.protein.fa
+
+#tidy names of chromosomes & linearize
+awk '/^>/{print $1;next}{print}' refseq_chromosome_protein_fasta.fasta > cleaned_refseq_chromosome_protein.fasta
+sed -i 's/lcl|//g' cleaned_refseq_chromosome_protein
+sed -i 's/_prot_/ from /g' cleaned_refseq_chromosome_protein
+sed -i 's/>/> /g' cleaned_refseq_chromosome_protein
+awk '/^>/{print ">" $4 " from " $2;next}{print}' cleaned_refseq_chromosome_protein.fasta > chromosome.protein.long.fa
+awk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}' < plasmid.protein.long.fa > plasmid.protein.fa
+
