@@ -147,8 +147,9 @@ write.table(data.quality.f, paste(wd, "/output/ARG_summary.txt", sep = ""), sep 
 #prep table for supplemental material
 data.quality.f.pub <- data.quality.f.soil %>%
   select(-c(database, t.length:q.length, bias1:acc, max.score,calc.min)) %>%
-  mutate(Sample=gsub("bacteria.protein.fa","Bacterial genome",Sample),
-         Sample=gsub("archaea.protein.fa","Archaeal genome", Sample),
+  mutate(Sample=gsub("bacteria.protein.fa","Chromosome",Sample),
+         Sample=gsub("archaea.protein.fa","Chromosome", Sample),
+         Sample=gsub("chromosome.protein.fa","Chromosome", Sample),
          Sample=gsub("plasmid.protein.fa", "Plasmid", Sample),
          Gene = as.factor(Gene),
          Gene = fct_relevel(Gene)) %>%
