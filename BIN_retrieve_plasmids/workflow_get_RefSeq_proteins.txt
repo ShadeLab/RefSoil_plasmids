@@ -56,5 +56,5 @@ sed -i 's/lcl|//g' cleaned_refseq_chromosome_protein
 sed -i 's/_prot_/ from /g' cleaned_refseq_chromosome_protein
 sed -i 's/>/> /g' cleaned_refseq_chromosome_protein
 awk '/^>/{print ">" $4 " from " $2;next}{print}' cleaned_refseq_chromosome_protein.fasta > chromosome.protein.long.fa
-awk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}' < plasmid.protein.long.fa > plasmid.protein.fa
+awk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}' < chromosome.protein.long.fa > chromosome.protein.fa
 
