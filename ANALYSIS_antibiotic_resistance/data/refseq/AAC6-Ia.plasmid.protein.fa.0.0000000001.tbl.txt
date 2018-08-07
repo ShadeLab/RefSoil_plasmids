@@ -1,0 +1,19 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+WP_015059044.1_146   -            184 Resfam_AAC6-Ia       -            185   4.1e-82  280.3   2.5   1   1   2.3e-87   4.5e-82  280.1   2.5     1   182     1   182     1   184 0.99 from NZ_CP025141.1
+WP_015059044.1_146   -            184 Resfam_AAC6-Ia       -            185   4.1e-82  280.3   2.5   1   1   2.3e-87   4.5e-82  280.1   2.5     1   182     1   182     1   184 0.99 from NZ_CP025144.1
+WP_015059044.1_153   -            184 Resfam_AAC6-Ia       -            185   4.1e-82  280.3   2.5   1   1   2.3e-87   4.5e-82  280.1   2.5     1   182     1   182     1   184 0.99 from NZ_CP025147.1
+WP_015059044.1_205   -            184 Resfam_AAC6-Ia       -            185   4.1e-82  280.3   2.5   1   1   2.3e-87   4.5e-82  280.1   2.5     1   182     1   182     1   184 0.99 from NZ_CP021835.1
+WP_015059044.1_223   -            184 Resfam_AAC6-Ia       -            185   4.1e-82  280.3   2.5   1   1   2.3e-87   4.5e-82  280.1   2.5     1   182     1   182     1   184 0.99 from NZ_CP018956.1
+WP_069681138.1_33    -            180 Resfam_AAC6-Ia       -            185     3e-29  107.9   4.4   1   1   1.7e-34   3.4e-29  107.7   4.4    11   182    10   177     2   180 0.88 from NZ_CP017255.2
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/AAC6-Ia/originaldata/AAC6-Ia.hmm
+# Target file:     /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/protein_files/plasmid.protein.fa
+# Option settings: /opt/software/HMMER/3.1b2--GCC-4.8.3/bin/hmmsearch -o /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/AAC6-Ia.plasmid.protein.fa.stdout.txt -A /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/AAC6-Ia.plasmid.protein.fa.alignment.0.0000000001.txt --domtblout /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/hmm_outputs/AAC6-Ia.plasmid.protein.fa.0.0000000001.tbl.txt -E 0.0000000001 --cpu 8 /mnt/research/ShadeLab/Dunivin/gene_targeted_assembly/RDPTools/Xander_assembler/gene_resource/AAC6-Ia/originaldata/AAC6-Ia.hmm /mnt/research/ShadeLab/Dunivin/hmmsearch/refseq/protein_files/plasmid.protein.fa 
+# Current dir:     /mnt/research/ShadeLab/Dunivin/hmmsearch/bin
+# Date:            Wed Aug  1 16:42:22 2018
+# [ok]

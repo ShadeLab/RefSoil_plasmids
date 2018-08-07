@@ -1,5 +1,5 @@
 database	Sample	Number
-RefSeq	Genome	10529
-RefSeq	Plasmid	10406
-RefSoil	Genome	922
-RefSoil	Plasmid	928
+RefSeq	Chromosome	10359
+RefSeq	Plasmid	9132
+RefSoil	Chromosome	986
+RefSoil	Plasmid	927

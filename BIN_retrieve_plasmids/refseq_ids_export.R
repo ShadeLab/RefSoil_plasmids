@@ -4,7 +4,7 @@ library(reshape2)
 library(taxize)
 
 #print working directory for future references
-setwd("/Users/dunivint/Documents/GitHubRepos/RefSoil_plasmids/ANALYSIS_antibiotic_resistance/data/refseq/genomes/")
+setwd("/Users/dunivint/Documents/GitHubRepos/RefSoil_plasmids/ANALYSIS_antibiotic_resistance/data/refseq/")
 wd <- print(getwd())
 
 #read in refseq plasmid quality data
@@ -44,7 +44,7 @@ refsoi.quality.complete <- cbind(refseq.quality.def, refseq.quality.accno)
 colnames(refsoi.quality.complete) <- c("d", "Definition", "a", "Accession", "Size")
 
 #read in refsoil data to remove
-refsoil <- read_delim("../../../output/refsoil_metadata_long.csv", delim = ",")
+refsoil <- read_delim("../../output/refsoil_metadata_long.csv", delim = ",")
 
 #subset refseq based on refsoil
 refseq <- refsoi.quality.complete %>%
@@ -60,9 +60,9 @@ chromosomes <- refseq %>%
   filter(!grepl("lasmid",Definition))
 
 #export accession numbers
-write.table(plasmids$Accession, file = "../../../output/refseq_plasmid.txt", col.names = FALSE, row.names = FALSE, quote = FALSE)
+write.table(plasmids$Accession, file = "../../output/refseq_plasmid.txt", col.names = FALSE, row.names = FALSE, quote = FALSE)
 
-write.table(chromosomes$Accession, file = "../../../output/refseq_chromosomes.txt", col.names = FALSE, row.names = FALSE, quote = FALSE)
+write.table(chromosomes$Accession, file = "../../output/refseq_chromosomes.txt", col.names = FALSE, row.names = FALSE, quote = FALSE)
 
 #export plasmid sizes
-write.table(select(plasmids, Accession, Size), file = "../../../data/refseq/plasmid_size_refseq_tab.txt", col.names = TRUE, row.names = FALSE, quote = FALSE)
+write.table(select(plasmids, Accession, Size), file = "../../data/refseq/plasmid_size_refseq_tab.txt", col.names = TRUE, row.names = FALSE, quote = FALSE)

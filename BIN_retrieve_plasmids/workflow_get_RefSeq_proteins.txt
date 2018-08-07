@@ -52,9 +52,9 @@ awk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}'
 
 #tidy names of chromosomes & linearize
 awk '/^>/{print $1;next}{print}' refseq_chromosome_protein_fasta.fasta > cleaned_refseq_chromosome_protein.fasta
-sed -i 's/lcl|//g' cleaned_refseq_chromosome_protein
-sed -i 's/_prot_/ from /g' cleaned_refseq_chromosome_protein
-sed -i 's/>/> /g' cleaned_refseq_chromosome_protein
+sed -i 's/lcl|//g' cleaned_refseq_chromosome_protein.fasta
+sed -i 's/_prot_/ from /g' cleaned_refseq_chromosome_protein.fasta
+sed -i 's/>/> /g' cleaned_refseq_chromosome_protein.fasta
 awk '/^>/{print ">" $4 " from " $2;next}{print}' cleaned_refseq_chromosome_protein.fasta > chromosome.protein.long.fa
 awk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}' < chromosome.protein.long.fa > chromosome.protein.fa
 

@@ -8,13 +8,11 @@ library(reshape2)
 library(forcats)
 library(scales)
 library(gridExtra)
+library(ggpubr)
 
 #print working directory for future references
 wd <- print(getwd())
 
-#############################################
-#PREPARE ARG HMM SEARCH RESULTS FOR ANALYSIS#
-#############################################
 #temporarily change working directory to data to bulk load files
 setwd("data")
 
@@ -24,19 +22,16 @@ data <- do.call(rbind, lapply(names, function(X) {
   data.frame(id = basename(X), database = "RefSoil", read.table(X))}))
 
 #get data for full refseq
-setwd("refseq/plasmid")
-refseq.plasmid.names=list.files(pattern="*.tbl.txt")
-refseq.plasmid <- do.call(rbind, lapply(refseq.plasmid.names, function(X) {data.frame(id = basename(X), database = "RefSeq", read.table(X))}))
-
-setwd("../")
-refseq.genome.names=list.files(pattern="*.tbl.txt")
-refseq.genome <- do.call(rbind, lapply(refseq.genome.names, function(X) {data.frame(id = basename(X), database = "RefSeq", read.table(X), V24 = NA)}))
+setwd("refseq/")
+refseq.names=list.files(pattern="*.tbl.txt")
+refseq <- do.call(rbind, lapply(refseq.names, function(X) {
+  data.frame(id = basename(X), database = "RefSeq", read.table(X))}))
 
 #fix working directory
 setwd(wd)
 
 #join datasets together
-data <- rbind(data, refseq.genome, refseq.plasmid)
+data <- rbind(data, refseq)
 data <- data %>%
   mutate(id = gsub(".0.0000000001.tbl.txt", "", id)) %>%
   separate(col = id, into = c("Gene", "Sample"), sep = "[.]", extra = "merge") %>%
@@ -61,7 +56,7 @@ data.l <- data %>%
     xlab("Percent alignment") +
     theme_bw(base_size = 8))
 
-ggsave(quality, filename = paste(wd, "/figures/search.quality.png", sep = ""), width = 7, height = 7, units = "in")
+ggsave(quality, filename = paste(wd, "/figures/figure_s1.png", sep = ""), width = 7, height = 7, units = "in")
 
 #calculate score cutoff
 data.summary <- data.l %>%
@@ -84,7 +79,7 @@ data.quality.f <- data.quality[which(data.quality$perc.ali > 0.90 & data.quality
 #add more stringent filtering based on figure
 data.quality.f <- data.quality.f[-which(data.quality.f$Gene == "vanA" & data.quality.f$score1 < 400),]
 
-data.quality.f <- data.quality.f[-which(data.quality.f$Gene == "CEP" & data.quality.f$score1 < 500),]
+data.quality.f <- data.quality.f[-which(data.quality.f$Gene == "CEP" & data.quality.f$score1 < 300),]
 
 data.quality.f <- data.quality.f[-which(data.quality.f$Gene == "adeB" & data.quality.f$score1 < 1000),]
 
@@ -96,13 +91,13 @@ data.quality.f <- data.quality.f[-which(data.quality.f$Gene == "vanX" & data.qua
 
 data.quality.f <- data.quality.f[-which(data.quality.f$Gene == "vanW" & data.quality.f$score1 < 250),]
 
+data.quality.f <- data.quality.f[-which(data.quality.f$Gene == "tolC" & data.quality.f$score1 < 207),]
+
+
 #examine if any HMM hits apply to two genes 
 #on the same organism
-duplicates <- data.quality.f[duplicated(data.quality.f[,c(4,23)]),]
-#3397 duplicates detected
-#many duplicates because RefSeq accessions include plasmids
-#must remove missannotated genome-version and keep plasmid
-
+duplicates <- data.quality.f[duplicated(data.quality.f[,c(4,24)]),]
+#3788 duplicates detected
 
 #fix any of the duplicates
 #we will accept the one with a higher score
@@ -113,7 +108,7 @@ data.quality.f.soil <- data.quality.f %>%
 data.quality.f.soil <- data.quality.f.soil[!duplicated(data.quality.f.soil$t.name),]
 
 #check that duplicates were removed
-duplicates.f.soil <- data.quality.f.soil[duplicated(data.quality.f.soil[,c(4,23)]),]
+duplicates.f.soil <- data.quality.f.soil[duplicated(data.quality.f.soil[,c(4,24)]),]
 
 #remove duplicates from RefSeq
 data.quality.f.seq <- data.quality.f %>%
@@ -130,7 +125,7 @@ data.quality.f.seq <- data.quality.f.seq[order(data.quality.f.seq$t.name, abs(da
 data.quality.f.seq <- data.quality.f.seq[!duplicated(data.quality.f.seq$t.name),]
 
 #check that duplicates were removed for refseq
-duplicates.f.seq <- data.quality.f.seq[duplicated(data.quality.f.seq[,c(4,23)]),]
+duplicates.f.seq <- data.quality.f.seq[duplicated(data.quality.f.seq[,c(4,24)]),]
 
 
 (quality.f <- data.quality.f.soil %>%
@@ -226,17 +221,23 @@ data.tax <- ncbi.tidy %>%
 #change NA gene to "None"
 data.tax$Gene[is.na(data.tax$Gene)] <- "None"
 
+#calculate n organisms per phylum
+n.org.tax <- ncbi %>%
+  mutate(Phylum = ifelse(Phylum == "Proteobacteria", Class, Phylum)) %>%
+  group_by(Phylum) %>%
+  summarise(n.org = length(Phylum))
+
 #prepare data for plotting
 data.tax.cast <- data.tax %>%
   select(`RefSoil ID`, Phylum, length.phy, Source, NCBI.ID, Contains.plasmid, Elements, Gene, Description) %>%
   dcast(`RefSoil ID`+Phylum+length.phy+Description+Gene~Source) %>%
   group_by(Description) %>%
-  mutate(group = ifelse(plasmid == 0 & chromosome > 0, "Genome only", "Plasmid only"),
-         group = ifelse(plasmid > 0 & chromosome > 0, "Plasmid and genome", group),
+  mutate(group = ifelse(plasmid == 0 & chromosome > 0, "Chromosome only", "Plasmid only"),
+         group = ifelse(plasmid > 0 & chromosome > 0, "Plasmid and chromosome", group),
          N = length(unique(Gene))) %>%
   ungroup() %>%
   mutate(group = as.factor(group),
-         Location = fct_relevel(group,"Plasmid only", "Plasmid and genome")) %>%
+         Location = fct_relevel(group,"Plasmid only", "Plasmid and chromosome")) %>%
   ungroup() %>%
   mutate(Number.genes = chromosome+plasmid,
          Description = as.factor(Description), 
@@ -245,29 +246,24 @@ data.tax.cast <- data.tax %>%
   mutate(Phylum = as.factor(Phylum)) %>%
   group_by(Phylum) %>%
   subset(Gene !="None") %>%
-  mutate(phy.count = sum(chromosome)+sum(plasmid)) %>%
-  ungroup() %>%
-  left_join(tax.summary, by = "Phylum") %>%
-  mutate(Phylum = paste(Phylum, " (", length.phy, ")", sep = ""),
-         Phylum = fct_reorder(Phylum, phy.count)) 
-
+  mutate(phy.count = sum(chromosome)+sum(plasmid)) 
+         
 
 #plot genes on different locations
 (gene_location <- ggplot(data.tax.cast, aes(x = Description, y = Number.genes, fill = Location)) +
     geom_bar(stat = "identity", color = NA) +
     scale_fill_brewer(palette = "Paired") +
     ylab("Number of genes") +
-    labs(fill = "Genetic elements") +
-    #coord_flip() +
+    labs(fill = "") +
     theme_bw(base_size = 10) +
     theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 1)))
 
 (gene_location.prop <- ggplot(data.tax.cast, aes(x = Description, y = Number.genes, fill = Location)) +
     geom_bar(stat = "identity", color = NA, position = "fill") +
     scale_fill_brewer(palette = "Paired") +
+    labs(fill = "") +
     ylab("Proportion") +
     xlab("") +
-    #coord_flip() +
     theme_bw(base_size = 10) +
     theme(axis.text.x = element_blank()))
 
@@ -292,60 +288,49 @@ library(ggpubr)
                                                   colnames.style = colnames_style(color = "black", face = "bold", size = 9, linewidth = 1, linecolor = "white", fill = "white", hjust = 0, x = 0.1))))
 
 #save tidy plasmid-only table
-ggsave(plasmid_only_table, filename = "output/plasmid_only_table.png", width = 1.1, height = 5.2)
+ggsave(plasmid_only_table, filename = "figures/figure_4_c.png", width = 1.1, height = 5.2)
 
+#set up data for phylum comparison
+data.tax.cast.phy <- data.tax.cast %>%
+  ungroup() %>%
+  left_join(n.org.tax, by = "Phylum") %>%
+  mutate(norm.genes = Number.genes/n.org, 
+         Phylum = as.factor(Phylum)) %>%
+  group_by(Phylum, n.org) %>%
+  mutate(norm.gene.total = sum(norm.genes), n.plasmid = sum(plasmid), n.chrom = sum(chromosome)) %>%
+  ungroup() %>%
+  mutate(Phylum = paste(Phylum, " (", n.org, ")", sep = ""),
+         Phylum = fct_reorder(as.factor(Phylum), norm.gene.total))
 
 #plot genes on different locations
-(phy_location <- ggplot(data.tax.cast, aes(x = Phylum, y = Number.genes, fill = Location)) +
+(figure_s3 <- ggplot(data.tax.cast.phy, aes(x = Phylum, y = norm.genes, fill = Location)) +
     geom_bar(stat = "identity") +
     scale_fill_brewer(palette = "Paired") +
-    ylab("Number of genes") +
-    labs(fill = "Genetic elements") +
-    coord_flip() +
-    theme_bw(base_size = 10))
-
-#look at phylum-level plasmid &
-#ARG-plasmid distributions
-element.summary <- tax.summary %>%
-  group_by(Phylum) %>%
-  melt(id.vars = "Phylum", measure.vars = c("chromosome", "plasmid"), value.name = "N.element", variable.name = "Location.element")  %>%
-  subset(Phylum %in% c("Armatimonadetes", "Gemmatimonadetes", "Acidithiobacillia", "Chlamydiae", "Deferribacteres", "Fusobacteria", "Nitrospirae", "Euryarchaeota", "Verrucomicrobia", "Planctomycetes", "Spirochaetes", "Chlorobi","Deinococcus-Thermus","Acidobacteria","Epsilonproteobacteria", "Bacteroidetes","Cyanobacteria","Actinobacteria", "Deltaproteobacteria","Firmicutes","Alphaproteobacteria", "Betaproteobacteria","Gammaproteobacteria")) %>%
-  mutate(Phylum = fct_relevel(Phylum,"Armatimonadetes", "Gemmatimonadetes", "Acidithiobacillia", "Chlamydiae", "Deferribacteres", "Fusobacteria", "Nitrospirae", "Euryarchaeota", "Verrucomicrobia", "Planctomycetes", "Spirochaetes", "Chlorobi","Deinococcus-Thermus","Acidobacteria","Epsilonproteobacteria", "Bacteroidetes","Cyanobacteria","Actinobacteria", "Deltaproteobacteria","Firmicutes","Alphaproteobacteria", "Betaproteobacteria","Gammaproteobacteria"), 
-         Location.element = as.factor(Location.element),
-         Location.element = fct_relevel(Location.element, "plasmid", "chromosome")) 
-
-#plot genes on different locations
-(phy_location_element <- ggplot(element.summary, aes(x = Phylum, y = N.element, fill = Location.element)) +
-    geom_bar(stat = "identity") +
-    ylab("Number of genetic elements") +
-    xlab("") +
-    scale_fill_manual(values = c("#A6CEE3","#B2DF8A")) +
+    ylab("Number of genes per organism") +
+    labs(fill = "ARG location") +
     coord_flip() +
     theme_bw(base_size = 10) +
-    theme(axis.text.y = element_blank()))
+    theme(legend.position = c(0.61, 0.2),
+          legend.title = element_text(size = 10),
+          legend.text = element_text(size = 8),
+          legend.background = element_rect(linetype = 1, size = 0.2, colour = 1)))
 
 #save supplemental figure 2
-(figure_s2 <- ggarrange(phy_location, phy_location_element,  common.legend = TRUE, legend = "bottom", labels = c("A", "B"), widths = c(1, 0.7)))
-
-ggsave(figure_s2, filename = "figures/figure_s2.eps", width = 6, height = 4, units = "in")
+ggsave(figure_s3, filename = "figures/figure_s3.png", width = 4.5, height = 4, units = "in", dpi = 300)
 
 #######################################
 #COMPARE REFSOIL ARGS WITH REFSEQ ARGS#
 #######################################
 #RefSeq release 89
-#nplasmid refsoil = 10406
-#nplasmid refseq = 4706
-#norg refsoil = 922
-#norg refseq = 50971 bacteria + 1069 archaea = 52040
-#read in numbers
 db.numbers <- read_delim("data/database_numbers.txt", delim = "\t", col_names = TRUE)
 
 #tidy data for comparison
 data.full <- rbind(data.quality.f.seq, data.quality.f.soil)
 data.full.tidy <- data.full %>%
   left_join(classification, by = "Gene") %>%
-  mutate(Sample = gsub("archaea.protein.fa", "Genome", Sample),
-         Sample = gsub("bacteria.protein.fa", "Genome", Sample),
+  mutate(Sample = gsub("archaea.protein.fa", "Chromosome", Sample),
+         Sample = gsub("bacteria.protein.fa", "Chromosome", Sample),
+         Sample = gsub("chromosome.protein.fa", "Chromosome", Sample),
          Sample = gsub("plasmid.protein.fa", "Plasmid", Sample)) %>%
   group_by(database, Sample, Description, Gene) %>%
   summarise(ARG = length(Gene)) %>%
@@ -354,20 +339,38 @@ data.full.tidy <- data.full %>%
   mutate(p.ARG = ARG/Number) 
 
 #plot number of ARG/plasmid in RefSoil v RefSeq
-(refcomp <- data.full.tidy %>%
-  ggplot(aes(x = database, fill = Sample, y = p.ARG*100)) +
+(figure_5 <- data.full.tidy %>%
+  ggplot(aes(x = database, fill = Sample, y = p.ARG*100, order = Description)) +
   geom_bar(color = "grey20", position = "stack", stat = "identity") +
-  scale_fill_manual(values = c("#B2DF8A", "#1F78B4")) +
-  facet_wrap(~Gene, scales = "free_y", shrink = TRUE) +
-    ylab("Proportion") +
+  scale_fill_manual(values = c("#B2DF8A", "#A6CEE3")) +
+  facet_wrap(~Gene, scales = "free_y", ncol = 6) +
+    ylab("Percent") +
     xlab("Database") +
-    labs(fill = "Genetic elements") +
+    labs(fill = "") +
     theme_bw(base_size = 9) +
-    theme(legend.position = "top", axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)))
+    theme(legend.position = "top", axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),strip.background = element_rect(fill = "white")))
 
-ggsave(refcomp, filename = "figures/refsoil_refseq.eps", units = "in", width = 6, height = 5)
+ggsave(figure_5, filename = "figures/figure_5.eps", units = "in", width = 6.8, height = 6)
 
-(refcomp.plas <- data.full.tidy %>%
+#make table of results
+options(digits = 1)
+proportion.table <- data.full.tidy %>%
+  select(database,Sample, Description, Gene, p.ARG) %>%
+  rename(Database = database, `Proportion with ARG` = p.ARG) %>%
+  dcast(Description+Gene~Database+Sample)
+proportion.table[is.na(proportion.table)] <- 0
+
+#save table of results to output
+(ARG_table <- ggtexttable(proportion.table, 
+                                   rows = NULL, 
+                                   theme = ttheme(base_size = 8,
+                                                  tbody.style = tbody_style(hjust = 0, x=0.1, fill = "white", size = 8),
+colnames.style = colnames_style(color = "black", face = "bold", size = 9, linewidth = 1, linecolor = "white", fill = "white", hjust = 0, x = 0.1))))
+
+#save tidy plasmid-only table
+ggsave(ARG_table, filename = "output/ARG_table.png", width = 6.2, height = 9)
+
+(figure_s4 <- data.full.tidy %>%
     ungroup() %>%
     select(-c(ARG, Number)) %>%
     dcast(database+Sample~Gene, value.var = "p.ARG") %>%
@@ -382,16 +385,16 @@ ggsave(refcomp, filename = "figures/refsoil_refseq.eps", units = "in", width = 6
                 size = 2,
                 shape = 21,
                 width = 0.2,
-                alpha = 0.7) +
+                alpha = 0.8) +
     scale_fill_brewer(palette = "Set3") +
     facet_wrap(~Sample, scales = "free_y", ncol = 1) +
     ylab("ARGs per element") +
     xlab("Database") +
     theme_bw(base_size = 9) +
     theme(strip.background = element_rect(fill = "white")) +
-    stat_compare_means(method = "wilcox.test", paired = FALSE, label.y.npc = "top", label.x.npc = "middle", label = "p.format", inherit.aes = TRUE))
+    stat_compare_means(method = "wilcox.test", paired = FALSE, label.y.npc = "top", label.x.npc = "middle", inherit.aes = TRUE,label = "p.signif"))
 
-ggsave(refcomp.plas, filename = "figures/refsoil_refseq_boxplot.png", units = "in", width = 4, height = 4, dpi = 300)
+ggsave(refcomp.plas, filename = "figures/figure_s4.png", units = "in", width = 4, height = 4, dpi = 300)
 
 #######################################
 #ANALYZE REFSOIL GENOME/PLASMID MAKEUP#
@@ -415,7 +418,7 @@ refsoil.elements <- ncbi.tidy %>%
 #plot refsoil proportions
 (refsoil.plasmid <- ggplot(refsoil.elements, aes(x = "", y = Proportion, fill = Proportion)) +
     geom_bar(stat = "identity", width = 1, color = "black") +
-    scale_fill_gradient(low = "#A6CEE3", high = "#B2DF8A") +
+    scale_fill_gradient(low = "#1F78B4", high = "#B2DF8A") +
     ylab("Number of genes") +
     coord_polar("y",start = 0) +
     theme_minimal()+
@@ -443,7 +446,7 @@ refsoil.plasmids <- ncbi.tidy %>%
   dcast(`RefSoil ID`+Phylum~Source)
 
 (plasmid.hist <- ggplot(subset(refsoil.plasmids, plasmid > 0), aes(x = plasmid)) +
-    geom_histogram(stat = "count", color = "black", fill = "#1F78B4") +
+    geom_histogram(stat = "count", color = "black", fill = "#A6CEE3") +
     scale_x_continuous(breaks = c(1,3,5,7,9,11,13,15)) +
     theme_classic(base_size = 10)+
     ylab("RefSoil organisms") +
@@ -470,7 +473,7 @@ size <- do.call(rbind, lapply(names, function(X) {
 
 #read in size data for refseq
 setwd("refseq")
-refseq.size <- read.table("plasmid_size_refseq_tab.txt")
+refseq.size <- read_delim("plasmid_size_refseq_tab.txt", delim = " ")
 
 #fix working directory
 setwd(wd)
@@ -508,9 +511,16 @@ size.p <- size %>%
   subset(id == "plasmid_size_refsoil_tab.txt") %>%
   mutate(NCBI.ID = as.character(V2))
 
+#total size
+#maybe remove
+size.tot <- size.p %>%
+  select(V2:V3) %>%
+  rename(Accession = V2, Size = V3)
+size.tot <- rbind(size.tot, refseq.size)
+
 #plot plasmid sizes
 (size.plasmid <- ggplot(size.p, aes(x = V3/1000)) +
-    geom_histogram(bins = 30, fill = "#1F78B4") +
+    geom_histogram(bins = 30, fill = "#A6CEE3") +
     scale_x_log10(breaks = c(1,5,10,35,100,1000)) +
     ylab("Number of plasmids") +
     xlab("Plasmid size (kbp)") +
@@ -518,20 +528,21 @@ size.p <- size %>%
 
 #plot size distribution between refsoil and refseq
 (size.plasmid.refseq <- ggplot() +
-    geom_density(data = refseq.size, aes(x = V3/1000, fill = "RefSeq"), alpha = 0.75) +
+    #geom_density(data = size.tot, aes(x = Size/1000, fill = "All"), alpha = 0.75) +
+    geom_density(data = refseq.size, aes(x = Size/1000, fill = "RefSeq"), alpha = 0.75) +
     geom_density(data = size.p, aes(x = V3/1000, fill = "RefSoil"), alpha = 0.75) +
     scale_x_log10(breaks = c(1,5,10,35,100,1000)) +
-    scale_fill_manual(name="Database", values=c(RefSeq ="grey", RefSoil="#1F78B4")) +
+    scale_fill_manual(name="Database", values=c(All = "black", RefSeq ="grey20", RefSoil="#A6CEE3")) +
     ylab("Density") +
     xlab("") +
     theme_classic(base_size = 10))
-ggsave(size.plasmid.refseq, filename = "figures/size_comparison.png", height = 2.5, width = 4, units = "in", dpi = 300)
+
 #plot and save figure 2
 (figure_2 <- ggarrange(size.plasmid, size.plasmid.refseq, labels = c("A", "B"), widths = c(1, 1), common.legend = TRUE))
 ggsave(figure_2, filename = "figures/figure_2.png", height = 2.5, width = 5.5, units = "in", dpi = 300)
 
 #test for difference 
-wilcox.test(refseq.size$V3, size.p$V3, paired = FALSE)
+wilcox.test(refseq.size$Size, size.p$V3, paired = FALSE)
 
 #############################
 #PLASMID SIZE VS GENOME SIZE#
@@ -574,26 +585,6 @@ size.annotated <- size %>%
           legend.title=element_text(size=9), 
           legend.text=element_text(size=8)))
 
-(plas.n_v_genome <- ggplot(size.annotated, aes(x = genome_tot_size/1000, y = plasmid_n_size, size = plasmid_mean_size/1000, alpha = plasmid_mean_size/1000)) +
-    geom_jitter(height = 0.2, width = 0) +
-    scale_fill_gradientn(colours = heat.colors(400)) +
-    ylab("Number of plasmids") +
-    xlab("Total genome size (kbp)") +
-    labs(size = "Mean plasmid
-         size (kbp)", 
-         alpha = "Mean plasmid
-         size (kbp)") +
-    theme_bw(base_size = 12) +
-    theme(legend.position = c(0.85, 0.6), 
-          legend.background = element_rect(color = "black", 
-                                           fill = "white",
-                                           size = 0.05, 
-                                           linetype = "solid"), 
-          legend.title=element_text(size=9), 
-          legend.text=element_text(size=8)))
-
-ggsave(plas.n_v_genome, filename = "figures/plasmid.number_v_genome.png", units = "in", width = 3.5, height = 3, dpi = 300)
-
 #plasmid density
 density.data <- size.annotated %>%
   mutate(plasmid.logical = ifelse(plasmid_n_size == 0, "None", ifelse(plasmid_n_size == 1, "One", "Multiple")),
@@ -621,9 +612,9 @@ density.data <- size.annotated %>%
     theme(legend.position = "none", axis.title.x = element_blank()))
 
 library(ggpubr)
-(Fig_S3 <- ggarrange(density.genome, NULL, plas_v_genome, density.plasmid, common.legend = TRUE, ncol = 2, nrow = 2, align = "hv", heights = c(0.5, 1), widths = c(1, 0.5)))
+(Fig_3 <- ggarrange(density.genome, NULL, plas_v_genome, density.plasmid, common.legend = TRUE, ncol = 2, nrow = 2, align = "hv", heights = c(0.5, 1), widths = c(1, 0.5)))
 
-ggsave(Fig_S3, filename = "figures/figure_s3.png", height = 4, width = 5, units = "in", dpi = 300)
+ggsave(Fig_3, filename = "figures/figure_3.png", height = 4, width = 5, units = "in", dpi = 300)
 
 #set up df for correlation stats
 size.stats <- size.annotated %>%
@@ -652,16 +643,4 @@ summary(a)
   xlab("Number of plasmids") +
   theme_bw())
 
-
-(plas.n_v_genome_boxplot <- size.annotated %>%
-    group_by(plasmid_n_size) %>%
-    mutate(length = length(plasmid_n_size)) %>%
-    ggplot(aes(x = as.factor(plasmid_n_size), y = genome_tot_size/1000)) +
-    geom_boxplot() +
-    stat_summary(geom = 'text', aes(label = .$length), fun.y = max, vjust = -1, size = 3) +
-    ylab("Genome size (kbp)") +
-    xlab("Number of plasmids") +
-    ylim(0, 16000) +
-    stat_compare_means(method = "anova", label.x = 10) +
-    theme_bw(base_size = 12))
-ggsave(plas.n_v_genome_boxplot, filename = "figures/genome_size_n.plasmid_boxplot.eps", width = 5, height = 3, units = "in")
+ggsave(genome.size.anova, filename = "figures/figure_s2.eps", width = 4, height = 3, units = "in")
