@@ -9,6 +9,7 @@ library(forcats)
 library(scales)
 library(gridExtra)
 library(ggpubr)
+library(psych)
 
 #print working directory for future references
 wd <- print(getwd())
@@ -190,6 +191,7 @@ ncbi.tidy <- ncbi.tidy[!is.na(ncbi.tidy$NCBI.ID),]
 
 #save ncbi table
 write.table(ncbi.tidy, file = "output/refsoil_metadata_long.csv", sep = ",", col.names = TRUE, row.names = FALSE, quote = FALSE)
+
 ##################################
 #ANALYZE ARG LOCATION for REFSOIL#
 ##################################
@@ -460,6 +462,10 @@ ggsave(figure_1, filename = "figures/figure_1.eps", height = 2.5, width = 5.5, u
 mean(refsoil.plasmids$plasmid)
 #1.006508
 
+#calculate variance of plasmid number
+var(refsoil.plasmids$plasmid)
+#3.198
+
 #######################################
 #ANALYZE REFSOIL GENOME/PLASMID MAKEUP#
 #######################################
@@ -544,6 +550,14 @@ ggsave(figure_2, filename = "figures/figure_2.png", height = 2.5, width = 5.5, u
 #test for difference 
 wilcox.test(refseq.size$Size, size.p$V3, paired = FALSE)
 
+#test for bimodality
+library(diptest)
+dip.test(refseq.size$Size)
+#refseq plasmid size is at least bimodal
+
+dip.test(size.p$V3)
+#refsoil plasmid size is at least bimodal
+
 #############################
 #PLASMID SIZE VS GENOME SIZE#
 #############################
@@ -584,6 +598,9 @@ size.annotated <- size %>%
                                            linetype = "solid"),
           legend.title=element_text(size=9), 
           legend.text=element_text(size=8)))
+
+#test for correlation between genome and plasmid size
+stats:::cor.test.default(x = size.annotated$genome_tot_size, y = size.annotated$plasmid_tot_size, method = "spearman")
 
 #plasmid density
 density.data <- size.annotated %>%
