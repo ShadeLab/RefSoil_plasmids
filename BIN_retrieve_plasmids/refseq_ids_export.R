@@ -1,7 +1,7 @@
 #load dependencies or install 
 library(tidyverse)
 library(reshape2)
-library(taxize)
+
 
 #print working directory for future references
 setwd("/Users/dunivint/Documents/GitHubRepos/RefSoil_plasmids/ANALYSIS_antibiotic_resistance/data/refseq/")
@@ -17,52 +17,46 @@ refseq.quality <- read_delim("organism_identifier_refseq_tab.txt",
 ##EXTRACT COMPLETE BACTERIA/ARCHAEA PLASMIDS ONLY
 #tidy refseq quality information
 refseq.quality.tidy <- refseq.quality %>%
-  mutate(X1 = gsub(".*.genomic.gbff:", "", X1),
-         X1 = gsub(".*.genomic.gbff-", "", X1),
-         X1 = trimws(X1)) %>%
-  subset(X1 !="--") %>%
-  subset(X1 !="ACCESSION") %>%
-  mutate(Addition = ifelse(X1 !="LOCUS", X1, NA),
-         Addition = ifelse(Addition == "DEFINITION", NA, Addition),
-         Addition = lead(Addition, n = 1)) %>%
-  subset(X1 %in% c("LOCUS", "DEFINITION")) %>%
-  mutate(Label = paste(X2, ifelse(is.na(Addition), "", Addition), sep = " "),
-         Label = str_squish(Label)) %>%
-  select(X1, Label)
-  
-
-#subset and join definition and accession information
-refseq.quality.def <- refseq.quality.tidy %>%
-  subset(X1 == "DEFINITION")
-refseq.quality.accno <- refseq.quality.tidy %>%
-  subset(X1 == "LOCUS") %>%
-  separate(Label, into = c("Label", "size"), sep = " ") %>%
+  separate(X1, into = c("Assembly", "Type"), sep = "genomic.gbff") %>%
+  subset(Assembly !="--") %>%
+  mutate(Type = gsub("-", "", Type),
+         Type = gsub(":", "", Type)) %>%
+  subset(Type !="ACCESSION") %>%
+  mutate(Definition = ifelse(Type !="LOCUS", X2, NA),
+         Definition = ifelse(Definition == "DEFINITION", NA, Definition),
+         Definition = lead(Definition, n =1)) %>%
+  subset(Type !="DEFINITION") %>%
+  mutate(Addition = ifelse(Type == "LOCUS", " ", Type),
+         Addition = lead(Addition, n = 1),
+         Definition = paste(Definition, Addition, sep = " ")) %>%
+  drop_na(X2) %>%
+  select(-Type) %>%
+  mutate(X2 = str_squish(X2)) %>%
+  separate(col = X2, into = c("Accession", "size"), sep = " ") %>%
   mutate(size = as.numeric(size))
-refsoi.quality.complete <- cbind(refseq.quality.def, refseq.quality.accno)
 
-#fix col names
-colnames(refsoi.quality.complete) <- c("d", "Definition", "a", "Accession", "Size")
 
 #read in refsoil data to remove
 refsoil <- read_delim("../../output/refsoil_metadata_long.csv", delim = ",")
 
 #subset refseq based on refsoil
-refseq <- refsoi.quality.complete %>%
-  subset(!Accession %in% refsoil$NCBI.ID)
+refseq <- refseq.quality.tidy %>%
+  subset(!Accession %in% refsoil$NCBI.ID) 
 
 #extract plasmids
 plasmids <- refseq %>%
-  select(Definition, Accession, Size) %>%
   filter(grepl("lasmid",Definition))
 
 chromosomes <- refseq %>%
-  select(Definition, Accession) %>%
-  filter(!grepl("lasmid",Definition))
+  filter(!grepl("lasmid",Definition)) %>%
+  filter(!grepl("extrachromosom",Definition))
 
 #export accession numbers
-write.table(plasmids$Accession, file = "../../output/refseq_plasmid.txt", col.names = FALSE, row.names = FALSE, quote = FALSE)
+write.table(select(plasmids, Accession), file = "../../output/refseq_plasmid.txt", col.names = FALSE, row.names = FALSE, quote = FALSE)
 
-write.table(chromosomes$Accession, file = "../../output/refseq_chromosomes.txt", col.names = FALSE, row.names = FALSE, quote = FALSE)
+write.table(select(chromosomes, Accession), file = "../../output/refseq_chromosomes.txt", col.names = FALSE, row.names = FALSE, quote = FALSE)
 
 #export plasmid sizes
-write.table(select(plasmids, Accession, Size), file = "../../data/refseq/plasmid_size_refseq_tab.txt", col.names = TRUE, row.names = FALSE, quote = FALSE)
+write.table(select(plasmids, Assembly, Accession, size), file = "../../data/refseq/plasmid_size_refseq_tab.txt", col.names = TRUE, row.names = FALSE, quote = FALSE)
+
+write.table(select(chromosomes, Assembly, Accession, size), file = "../../data/refseq/chromosome_size_refseq_tab.txt", col.names = TRUE, row.names = FALSE, quote = FALSE)
