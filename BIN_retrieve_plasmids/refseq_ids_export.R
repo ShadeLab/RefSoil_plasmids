@@ -38,10 +38,20 @@ refseq.quality.tidy <- refseq.quality %>%
 
 #read in refsoil data to remove
 refsoil <- read_delim("../../output/refsoil_metadata_long.csv", delim = ",")
+refsoil <- refsoil %>%
+  separate(NCBI.ID, into = c("NCBI.ID", "V"), sep = "\\.")
 
 #subset refseq based on refsoil
 refseq <- refseq.quality.tidy %>%
-  subset(!Accession %in% refsoil$NCBI.ID) 
+  mutate(Accession = trimws(Accession)) %>%
+  subset(!Accession %in% refsoil$NCBI.ID) %>%
+  #remove last 4 plasmids (NCBI changed accno since RefSoil1)
+  subset(!Accession == "NC_008122") %>%
+  subset(!Accession == "NZ_AY208917") %>%
+  subset(!Accession == "NC_020293") %>%
+  subset(!Accession == "NZ_CP007046") %>%
+  #remove WGS NCBI annotation error
+  subset(Assembly != "GCF_003048205.1_ASM304820v1_")
 
 #extract plasmids
 plasmids <- refseq %>%
@@ -50,6 +60,22 @@ plasmids <- refseq %>%
 chromosomes <- refseq %>%
   filter(!grepl("lasmid",Definition)) %>%
   filter(!grepl("extrachromosom",Definition))
+
+#correct chromosome misannotations
+plasmid.mis <- chromosomes %>%
+  subset(Accession %in% c("NZ_CP014061", "NZ_CP022017"))
+
+chromosome.mis <- plasmids %>%
+  subset(Accession %in% c("NZ_CP014062", "NZ_CP022019"))
+
+#add corrected
+plasmids <- plasmids %>%
+  subset(!Accession %in% c("NZ_CP014062", "NZ_CP022019"))
+plasmids <- rbind(plasmids, plasmid.mis)
+
+chromosomes <- chromosomes %>%
+  subset(!Accession %in% c("NZ_CP014061", "NZ_CP022017"))
+chromosomes <- rbind(chromosomes, chromosome.mis)
 
 #export accession numbers
 write.table(select(plasmids, Accession), file = "../../output/refseq_plasmid.txt", col.names = FALSE, row.names = FALSE, quote = FALSE)
@@ -60,3 +86,4 @@ write.table(select(chromosomes, Accession), file = "../../output/refseq_chromoso
 write.table(select(plasmids, Assembly, Accession, size), file = "../../data/refseq/plasmid_size_refseq_tab.txt", col.names = TRUE, row.names = FALSE, quote = FALSE)
 
 write.table(select(chromosomes, Assembly, Accession, size), file = "../../data/refseq/chromosome_size_refseq_tab.txt", col.names = TRUE, row.names = FALSE, quote = FALSE)
+

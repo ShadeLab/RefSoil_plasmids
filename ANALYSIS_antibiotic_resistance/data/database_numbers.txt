@@ -1,5 +1,7 @@
-database	Sample	Number
-RefSeq	Chromosome	10359
-RefSeq	Plasmid	9132
-RefSoil	Chromosome	986
-RefSoil	Plasmid	927
+database	Sample	Number	Size
+RefSeq	Chromosome	10329	36190787061
+RefSeq	Plasmid	8267	955253638
+RefSeq	Genome	9999	37146040699
+RefSoil	Genome	922	4430943736
+RefSoil	Chromosome	986	4235208978
+RefSoil	Plasmid	928	195734758
